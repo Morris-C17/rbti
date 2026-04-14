@@ -28,13 +28,24 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .option-btn { transition: all 0.2s ease; }
-        .option-btn:hover {
-            border-color: #6366f1;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+        /* 修复移动端 Sticky Hover 和焦点残留问题 */
+        .option-btn { 
+            transition: all 0.2s ease; 
+            outline: none !important;
+            -webkit-tap-highlight-color: transparent;
         }
+        
+        /* 仅在支持鼠标悬停的设备上启用 hover 特效 */
+        @media (hover: hover) {
+            .option-btn:hover {
+                border-color: #6366f1;
+                transform: translateY(-1px);
+                box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+            }
+        }
+        
         .option-btn:active { transform: translateY(1px); }
+        
         .option-selected {
             border-color: #6366f1 !important;
             background-color: #e0e7ff !important;
@@ -247,7 +258,7 @@
             psyche: { name: '迷幻实验 (Psyche)', color: '#d946ef', desc: '精神游离在三维世界之外，追求绝对自由的太空漫游者。' }
         };
 
-        // ================= 30道精选测试题库 =================
+        // ================= 35道精选测试题库 =================
         const questionBank = [
             { text: "在音乐节现场，如果突然下起了倾盆大雨，你会？", options: [{ text: "直接冲进雨里Pogo，觉得被淋透了才是摇滚", vibes: ['punk', 'metal'] }, { text: "找个能避雨的帐篷，远距离感受雨中的音墙", vibes: ['post', 'dark'] }, { text: "撑起雨伞，跟着旋律轻轻摇晃身体", vibes: ['pop', 'folk'] }, { text: "觉得雨水模糊视线的感觉很奇妙，像在梦里", vibes: ['psyche', 'retro'] }]},
             { text: "Livehouse里，你最讨厌站在哪种人旁边？", options: [{ text: "全程举着手机录像，动也不动的人", vibes: ['punk', 'post'] }, { text: "不顾别人死活、盲目冲撞伤人的酒蒙子", vibes: ['folk', 'pop'] }, { text: "在安静的前奏里大声聊天破坏氛围的人", vibes: ['dark', 'post'] }, { text: "跟着大合唱但是完全不在调上的人", vibes: ['metal', 'psyche'] }]},
@@ -383,7 +394,7 @@
 
             q.options.forEach((opt, index) => {
                 const btn = document.createElement('button');
-                btn.className = 'option-btn w-full text-left p-4 sm:p-5 rounded-2xl border-2 border-gray-100 bg-white font-medium text-[15px] text-gray-600 leading-relaxed shadow-sm mb-3';
+                btn.className = 'option-btn w-full text-left p-4 sm:p-5 rounded-2xl border-2 border-gray-100 bg-white font-medium text-[15px] text-gray-600 leading-relaxed shadow-sm mb-3 focus:outline-none focus:ring-0';
                 btn.innerText = opt.text;
                 
                 if (userAnswers[currentQuestionIndex] === index) {

@@ -21,21 +21,20 @@
             margin: 0;
         }
 
-        .fade-in { animation: fadeIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+        .fade-in { animation: fadeIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 修复移动端 Sticky Hover 和焦点残留问题 */
+        /* 移动端 Sticky Hover 和焦点残留问题修复 */
         .option-btn { 
             transition: all 0.2s ease; 
             outline: none !important;
             -webkit-tap-highlight-color: transparent;
         }
         
-        /* 仅在支持鼠标悬停的设备上启用 hover 特效 */
         @media (hover: hover) {
             .option-btn:hover {
                 border-color: #6366f1;
@@ -56,7 +55,6 @@
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* 结果页背景流动 */
         .result-bg-shape {
             position: absolute;
             bottom: -80px;
@@ -66,7 +64,7 @@
             border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
             z-index: 0;
             animation: morph 8s ease-in-out infinite;
-            opacity: 0.15;
+            opacity: 0.12;
         }
 
         @keyframes morph {
@@ -89,24 +87,24 @@
                 <div class="text-[10px] text-gray-400 font-medium tracking-widest">微信: Rock-LingYin</div>
             </div>
 
-            <p class="text-gray-400 font-bold tracking-widest text-sm mb-6 uppercase mt-8">SBTI？我们有自己的RBTI！</p>
+            <p class="text-gray-400 font-bold tracking-widest text-sm mb-6 uppercase mt-8">MBTI已经过时，RBTI来了。</p>
             
-            <h1 class="text-[34px] font-black mb-3 text-center text-gray-900 leading-tight">测测你<br>最像哪支摇滚乐队</h1>
+            <h1 class="text-[34px] font-black mb-3 text-center text-gray-900 leading-tight">测测你骨子里<br>最像哪支摇滚乐队</h1>
             <p class="text-[13px] text-gray-500 text-center mb-8 mt-2 px-2 leading-relaxed">
-                从 80 道海量专属题库中随机抽取 30 道测试，采用全新多维空间向量算法，拆穿你的听歌类型、Livehouse发疯模式和精神底色。
+                基于深度内核算法。系统将从 80 道音乐节与Livehouse的抽象题库中<span class="font-bold text-indigo-500">随机抽取 30 题</span>，拆穿你的真实精神底色！
             </p>
             
             <div class="flex flex-wrap justify-center gap-2.5 mb-10">
-                <span class="bg-gray-100/80 text-gray-600 px-3.5 py-1.5 rounded-full text-[12px] font-medium">53种乐队人格</span>
+                <span class="bg-gray-100/80 text-gray-600 px-3.5 py-1.5 rounded-full text-[12px] font-medium">专属乐队人格</span>
+                <span class="bg-gray-100/80 text-gray-600 px-3.5 py-1.5 rounded-full text-[12px] font-medium">精准算法匹配</span>
                 <span class="bg-gray-100/80 text-gray-600 px-3.5 py-1.5 rounded-full text-[12px] font-medium">深度现场拷问</span>
-                <span class="bg-gray-100/80 text-gray-600 px-3.5 py-1.5 rounded-full text-[12px] font-medium">八大维度分析</span>
-                <span class="bg-gray-100/80 text-gray-600 px-3.5 py-1.5 rounded-full text-[12px] font-medium">MBTI级向量匹配</span>
+                <span class="bg-gray-100/80 text-gray-600 px-3.5 py-1.5 rounded-full text-[12px] font-medium">四维解析度</span>
             </div>
             
             <button onclick="startQuiz()" class="w-full max-w-[280px] bg-[#6366f1] text-white py-4 rounded-xl font-bold text-[17px] hover:bg-[#4f46e5] transition-colors shadow-lg shadow-indigo-500/30 active:scale-95">
                 开始测试
             </button>
-            <p class="text-[11px] text-gray-400 mt-5 tracking-wide">大约3分钟 · 结果可截图分享</p>
+            <p class="text-[11px] text-gray-400 mt-5 tracking-wide">大约需要 3 分钟</p>
 
             <div class="absolute bottom-6 text-center w-full px-6">
                 <p class="text-[10px] text-gray-300 leading-tight">免责声明：本测试仅供娱乐参考，请勿作为专业心理学诊断标准。</p>
@@ -153,8 +151,8 @@
                 <div class="absolute inset-0 border-4 border-indigo-100 rounded-full"></div>
                 <div class="absolute inset-0 border-4 border-[#6366f1] rounded-full border-t-transparent animate-spin"></div>
             </div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2">正在测算你的RBTI频率...</h3>
-            <p class="text-gray-500 font-medium text-sm animate-pulse">正在生成多维向量深度报告</p>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">计算精神底色向量...</h3>
+            <p class="text-gray-500 font-medium text-sm animate-pulse">正在生成深度解析报告</p>
         </div>
 
         <!-- ================= 结果视图 (长图版) ================= -->
@@ -166,7 +164,7 @@
                 <div id="capture-area" class="bg-white rounded-[24px] shadow-sm relative overflow-hidden flex flex-col items-center pt-8 pb-8 px-6 border border-gray-100">
                     <div class="result-bg-shape" id="dynamic-bg"></div>
                     
-                    <p class="text-gray-400 text-[12px] mb-2 z-10 font-bold tracking-widest">你的主类型</p>
+                    <p class="text-gray-400 text-[12px] mb-2 z-10 font-bold tracking-widest">你的人格类型是：</p>
                     <h2 id="res-title" class="text-[36px] font-black tracking-tight text-gray-900 z-10 leading-none mb-1 text-center"></h2>
                     <p id="res-subtitle" class="text-gray-500 text-[13px] z-10 mb-6 font-medium tracking-widest uppercase"></p>
                     
@@ -174,9 +172,9 @@
                         完美匹配 · 精准命中灵魂频段
                     </div>
 
-                    <!-- 动态矢量插画容器 -->
+                    <!-- 本地图片容器 -->
                     <div id="res-illustration" class="w-full h-52 flex items-center justify-center z-10 relative mb-6">
-                        <!-- SVG 注入 -->
+                        <!-- img 将在这里注入 -->
                     </div>
                     
                     <!-- 乐队锐评/歌词 -->
@@ -193,13 +191,13 @@
                     <p id="res-desc" class="text-[13px] text-gray-600 leading-relaxed text-justify"></p>
                 </div>
 
-                <!-- 3. 八大频率维度评分 -->
+                <!-- 3. RBTI 四维属性双向分析条 -->
                 <div class="bg-white rounded-[20px] shadow-sm p-6 border border-gray-100">
                     <h3 class="font-black text-[16px] text-gray-900 mb-6 flex items-center gap-2">
-                        <div class="w-1.5 h-4 bg-[#6366f1] rounded-full"></div> 八大摇滚频率剖析
+                        <div class="w-1.5 h-4 bg-[#6366f1] rounded-full"></div> 摇滚人格维度分析
                     </h3>
-                    <div id="vibe-bars-container" class="space-y-4">
-                        <!-- 由 JS 动态注入条形图 -->
+                    <div id="vibe-bars-container" class="space-y-5">
+                        <!-- 由 JS 动态注入双向条形图 -->
                     </div>
                 </div>
 
@@ -218,21 +216,18 @@
                             <span class="text-[10px] bg-gray-100 text-gray-400 px-2 py-1 rounded-md">Morris</span>
                         </div>
                         <p class="text-[12px] text-gray-500 leading-relaxed space-y-2">
-                            <span>本测试算法和设计全靠主观听歌审美驱动。全新的欧几里得距离算法已部署，完全根据您的选择雷达图进行多维判定！</span><br><br>
-                            <span>由于精力有限，目前收录了 53 支乐队。如果您喜欢的宝藏乐队没在里面，欢迎带上您的精神底色继续在Livehouse里野蛮生长！</span><br><br>
-                            <span>如果您有更好的建议或者是想和作者谈合作交朋友，请放心大胆的加作者，作者会非常开心噢！</span><br><br>
+                            <span>本测试算法和设计全靠主观听歌审美驱动，完全根据您的选择偏好进行多维判定！</span><br><br>
+                            <span>由于精力有限，目前收录了十余支核心专属乐队。如果您喜欢的宝藏乐队没在里面，欢迎带上您的精神底色继续在Livehouse里野蛮生长！</span><br><br>
+                            <span>如果您有更好的建议，或者是想和作者谈合作、交朋友，请放心大胆的加作者，作者会非常开心噢！</span><br><br>
                             <span class="text-gray-400 font-medium">© 2026 Morris. All Rights Reserved. <br> <b>微信: Rock-LingYin</b></span>
                         </p>
                     </div>
                 </div>
                 
-                <!-- 底部双按钮 (无长按分享) -->
+                <!-- 底部返回按钮 -->
                 <div class="flex gap-3 mt-2">
-                    <button onclick="resetQuiz()" class="flex-1 bg-white border border-gray-200 text-gray-700 py-3.5 rounded-[16px] font-bold text-[14px] hover:bg-gray-50 active:bg-gray-100 transition-colors shadow-sm">
-                        重新测试
-                    </button>
-                    <button onclick="resetQuiz()" class="flex-1 bg-gray-900 text-white py-3.5 rounded-[16px] font-bold text-[14px] hover:bg-black active:scale-[0.98] transition-all shadow-md">
-                        回到首页
+                    <button onclick="resetQuiz()" class="w-full bg-gray-900 text-white py-3.5 rounded-[16px] font-bold text-[15px] hover:bg-black active:scale-[0.98] transition-all shadow-md">
+                        再测一次
                     </button>
                 </div>
                 
@@ -242,171 +237,90 @@
 
     <!-- 所有 JavaScript 逻辑 -->
     <script>
-        // ================= 8 大频率体系的中文释义 =================
-        const vibeInfo = {
-            punk: { name: '朋克躁动 (Punk)', color: '#ef4444', desc: '充满破坏欲、荷尔蒙和最直接的情感宣泄，拒绝妥协。' },
-            metal: { name: '重型核嗓 (Metal)', color: '#111827', desc: '在失真与嘶吼中寻找毁灭与重生，力量感爆棚。' },
-            post: { name: '后摇冥想 (Post-Rock)', color: '#3b82f6', desc: '习惯于用绵长深邃的音墙代替言语，内心极其丰富敏感。' },
-            folk: { name: '民谣叙事 (Folk)', color: '#d97706', desc: '比起宏大叙事，更关注市井烟火与个体命运的流浪诗人。' },
-            pop: { name: '流行浪漫 (Pop-Rock)', color: '#ec4899', desc: '极具旋律感，捕捉都市里转瞬即逝的浪漫与荷尔蒙。' },
-            dark: { name: '暗黑哥特 (Dark)', color: '#4c1d95', desc: '清醒的悲观主义，对世界的荒谬有着深刻而冷酷的洞察。' },
-            retro: { name: '复古英伦 (Retro)', color: '#059669', desc: '喜欢用合成器或老式吉他构建一台怀旧的时光机。' },
-            psyche: { name: '迷幻实验 (Psyche)', color: '#d946ef', desc: '精神游离在三维世界之外，追求绝对自由的太空漫游者。' }
-        };
-
-        // ================= 80道海量终极题库 =================
-        const questionBank = [
-            // 基础情感与听歌习惯类
-            { text: "在音乐节现场，如果突然下起了倾盆大雨，你会？", options: [{ text: "直接冲进雨里Pogo，觉得被淋透了才是摇滚", vibes: ['punk', 'metal'] }, { text: "找个能避雨的帐篷，远距离感受雨中的音墙", vibes: ['post', 'dark'] }, { text: "撑起雨伞，跟着旋律轻轻摇晃身体", vibes: ['pop', 'folk'] }, { text: "觉得雨水模糊视线的感觉很奇妙，像在梦里", vibes: ['psyche', 'retro'] }]},
-            { text: "Livehouse里，你最讨厌站在哪种人旁边？", options: [{ text: "全程举着手机录像，动也不动的人", vibes: ['punk', 'post'] }, { text: "不顾别人死活、盲目冲撞伤人的酒蒙子", vibes: ['folk', 'pop'] }, { text: "在安静的前奏里大声聊天破坏氛围的人", vibes: ['dark', 'post'] }, { text: "跟着大合唱但是完全不在调上的人", vibes: ['metal', 'psyche'] }]},
-            { text: "当一首长达10分钟的纯器乐曲播放到第5分钟时，你会：", options: [{ text: "渐入佳境，闭着眼等待情绪铺垫到最高潮", vibes: ['post', 'psyche'] }, { text: "觉得有点无聊，我想听点有主唱嘶吼的东西", vibes: ['punk', 'metal'] }, { text: "开始拆解它的贝斯线和鼓点是怎么对上的", vibes: ['post', 'retro'] }, { text: "跟着缓慢的节奏，陷入对自己人生的冥想", vibes: ['dark', 'folk'] }]},
-            { text: "你如何看待音乐中的“跑调”或“破音”？", options: [{ text: "那才是真实的荷尔蒙和原始的生命力", vibes: ['punk', 'metal'] }, { text: "不可原谅，音乐需要精确的控制", vibes: ['post', 'retro'] }, { text: "无所谓，只要歌词能像刀子一样扎进心里就行", vibes: ['dark', 'folk'] }, { text: "有时候那种粗糙的Lo-Fi感反而很浪漫", vibes: ['pop', 'psyche'] }]},
-            { text: "深夜emo失眠时，你的耳机里通常在放什么？", options: [{ text: "合成器与回声构筑的深邃太空迷幻曲", vibes: ['psyche', 'retro'] }, { text: "像讲故事一样娓娓道来的城市民谣", vibes: ['folk', 'pop'] }, { text: "发泄不满的重型，因为我对这个世界有怨气", vibes: ['metal', 'dark'] }, { text: "连绵不断、充满压抑感的音墙", vibes: ['post', 'dark'] }]},
-            { text: "看到乐队主唱在台上砸了吉他，你的第一反应是？", options: [{ text: "太牛逼了！摇滚乐就该有这种破坏欲！", vibes: ['punk', 'metal'] }, { text: "有点浪费乐器，但这确实是一种情绪表达", vibes: ['dark', 'retro'] }, { text: "太吵闹做作了，我更喜欢克制的表演", vibes: ['folk', 'pop'] }, { text: "这是算好的表演环节还是真情流露？", vibes: ['post', 'psyche'] }]},
-            { text: "如果让你在乐队里选一个位置，你会选：", options: [{ text: "主唱，我想把我的观点直接吼给世界听", vibes: ['punk', 'pop'] }, { text: "吉他手，用复杂的Solo和效果器掌控全场", vibes: ['metal', 'psyche'] }, { text: "贝斯或鼓手，我喜欢在底座提供稳固的律动", vibes: ['post', 'retro'] }, { text: "我只想在台下当个安静的观众", vibes: ['folk', 'dark'] }]},
-            { text: "你偏爱的歌词风格是？", options: [{ text: "直白、市井、带着泥土味和生活气", vibes: ['folk', 'punk'] }, { text: "如现代诗般晦涩、工整且充满悲剧色彩", vibes: ['dark', 'post'] }, { text: "随性、浪漫、甚至带点复古的台式情话", vibes: ['pop', 'retro'] }, { text: "不需要歌词，或者人声只是一种乐器", vibes: ['post', 'psyche'] }]},
-            { text: "面对世界上的“荒谬”和“不公”，你的本能反应是：", options: [{ text: "极度愤怒，用最具破坏力的方式控诉", vibes: ['metal', 'punk'] }, { text: "冷眼旁观，写成荒诞的诗句以作嘲讽", vibes: ['dark', 'post'] }, { text: "躲进自己的精神庇护所，寻找内心的平静", vibes: ['folk', 'psyche'] }, { text: "看透了，不如尽情享乐，今朝有酒今朝醉", vibes: ['pop', 'retro'] }]},
-            { text: "如果你的内心有一个形状，它最接近：", options: [{ text: "一个长满尖刺、不规则的暗色铁块", vibes: ['metal', 'dark'] }, { text: "一滴缓慢坠入深湖的水，激起层层涟漪", vibes: ['post', 'folk'] }, { text: "无数个精密咬合的齿轮，不停运转", vibes: ['post', 'retro'] }, { text: "一个色彩斑斓、不断扭曲融化的万花筒", vibes: ['psyche', 'pop'] }]},
-            { text: "选一种你最喜欢的自然气象：", options: [{ text: "摧枯拉朽的狂风暴雨和雷鸣", vibes: ['metal', 'punk'] }, { text: "笼罩着整座城市的浓厚大雾", vibes: ['dark', 'psyche'] }, { text: "冬日午后，能晒暖被子的温和阳光", vibes: ['pop', 'folk'] }, { text: "雨后带着泥土腥味的潮湿晚风", vibes: ['folk', 'retro'] }]},
-            { text: "你认为“孤独”是：", options: [{ text: "一种病，需要酒精、朋友和舞池来治愈", vibes: ['pop', 'retro'] }, { text: "人生的常态，每个人都是一座孤岛", vibes: ['folk', 'dark'] }, { text: "最完美的创作状态，我享受绝对的清静", vibes: ['post', 'psyche'] }, { text: "像一把钝刀，时不时地拉扯一下心脏", vibes: ['dark', 'punk'] }]},
-            { text: "“浪漫”对你而言，意味着什么？", options: [{ text: "骑着摩托车，带着爱人沿着海岸线狂奔", vibes: ['pop', 'retro'] }, { text: "在浩瀚星空下，意识到人类的微不足道", vibes: ['post', 'psyche'] }, { text: "两人在出租屋里分吃一碗面，彼此懂得", vibes: ['folk', 'pop'] }, { text: "在绝望和毁灭中，依然保持对真实的渴望", vibes: ['dark', 'metal'] }]},
-            { text: "周末没约人的下午，你更可能在做什么？", options: [{ text: "找一家老旧的黑胶唱片店淘碟", vibes: ['retro', 'pop'] }, { text: "喝着咖啡，读一本晦涩的哲学或诗歌书", vibes: ['dark', 'post'] }, { text: "打开效果器和音箱，制造只有自己懂的噪音", vibes: ['metal', 'psyche'] }, { text: "带上相机，去城市的边缘或者城中村溜达", vibes: ['folk', 'punk'] }]},
-            { text: "一部电影的哪个元素最能打动你？", options: [{ text: "宏大深邃的配乐和无对白的空镜头", vibes: ['post', 'psyche'] }, { text: "底层小人物辛酸又真实的挣扎", vibes: ['folk', 'punk'] }, { text: "荒诞、反转、充满隐喻和黑色幽默的剧情", vibes: ['dark', 'retro'] }, { text: "极具张力的台词和充满荷尔蒙的肢体冲突", vibes: ['metal', 'punk'] }]},
-            { text: "面对过去的遗憾，你会说：", options: [{ text: "“算了，一切都是命中注定。”", vibes: ['folk', 'pop'] }, { text: "“真想回去，把那一切撕碎。”", vibes: ['metal', 'dark'] }, { text: "“那些遗憾，最终都变成了我人生里的和弦。”", vibes: ['pop', 'retro'] }, { text: "“记忆只是幻觉，一切都在解构重组。”", vibes: ['psyche', 'post'] }]},
-            { text: "如果明天就是世界末日，你今晚会干嘛？", options: [{ text: "找个楼顶，静静等待毁灭的壮丽景象", vibes: ['post', 'dark'] }, { text: "把音箱开到最大，放最燥的歌疯狂甩头", vibes: ['metal', 'punk'] }, { text: "和最爱的人拥抱，喝光家里所有的酒", vibes: ['pop', 'retro'] }, { text: "什么都不做，觉得这一天终于来了", vibes: ['dark', 'folk'] }]},
-            { text: "你最向往的居住环境是？", options: [{ text: "远离城市的森林木屋，推窗见海或大树", vibes: ['folk', 'post'] }, { text: "充满市井烟火气、楼下就有夜市的老城区", vibes: ['pop', 'retro'] }, { text: "废弃工厂改造的工业风Loft，可以随便弄出噪音", vibes: ['metal', 'punk'] }, { text: "布置满地毯、香薰、黑胶机的温馨房间", vibes: ['retro', 'psyche'] }]},
-            { text: "你对待金钱的态度是：", options: [{ text: "够买酒和看演出的门票就行了，千金散尽还复来", vibes: ['punk', 'retro'] }, { text: "金钱是异化人的工具，但我不得不妥协", vibes: ['dark', 'metal'] }, { text: "通过精打细算获得一种生活在掌控之中的安全感", vibes: ['post', 'folk'] }, { text: "钱只是维持自由生活底线的数字，不必贪多", vibes: ['folk', 'pop'] }]},
-            { text: "别人突然送你一束花，你会：", options: [{ text: "觉得很浪漫，开心地找个好看的花瓶养起来", vibes: ['pop', 'retro'] }, { text: "看着它，感叹美丽事物的转瞬即逝", vibes: ['dark', 'post'] }, { text: "觉得有点尴尬或不切实际，不如请我吃顿饭", vibes: ['punk', 'folk'] }, { text: "把花瓣揪下来，做成某种奇怪的艺术拼贴", vibes: ['psyche', 'metal'] }]},
-            { text: "如果让你选择学会一种乐器，你会选：", options: [{ text: "能制造迷幻音效的合成器", vibes: ['psyche', 'retro'] }, { text: "能敲碎一切烦恼的架子鼓", vibes: ['metal', 'punk'] }, { text: "一把走哪带哪的木吉他", vibes: ['folk', 'pop'] }, { text: "低沉且充满律动灵魂的贝斯", vibes: ['post', 'dark'] }]},
-            { text: "你心目中“最酷”的人是什么样的？", options: [{ text: "不在乎任何人的眼光，敢于对抗整个世界", vibes: ['metal', 'punk'] }, { text: "有一技之长，在自己的小领域里做到极致", vibes: ['post', 'retro'] }, { text: "历经沧桑却依然保持温柔和善良", vibes: ['folk', 'pop'] }, { text: "永远在路上，不被世俗的房子车子困住", vibes: ['psyche', 'folk'] }]},
-            { text: "听到一首熟悉的老歌，你通常会：", options: [{ text: "想起那个一起听这首歌的人，眼眶泛红", vibes: ['folk', 'pop'] }, { text: "觉得以前的编曲真经典，现在的歌没法比", vibes: ['retro', 'post'] }, { text: "立马切掉，我只喜欢寻找新鲜刺激的声音", vibes: ['punk', 'psyche'] }, { text: "微笑着跟着哼唱，感叹时光飞逝", vibes: ['pop', 'retro'] }]},
-            { text: "以下哪个意象最能代表你的青春？", options: [{ text: "操场上流的汗水和耳机里震耳欲聋的鼓点", vibes: ['punk', 'metal'] }, { text: "写满字迹的日记本和暗恋对象的背影", vibes: ['pop', 'folk'] }, { text: "在无聊的课堂上望着窗外的天空发呆", vibes: ['post', 'psyche'] }, { text: "和几个狐朋狗友在天台抽的劣质香烟", vibes: ['dark', 'retro'] }]},
-
-            // Livehouse与音乐节重度行为拷问
-            { text: "在Livehouse看重型演出时，场地中央突然空出了一个大圈（Wall of Death），你会？", options: [{ text: "毫不犹豫地冲进去，等待爆发时互相撞击的爽快感", vibes: ['metal', 'punk'] }, { text: "在边缘护栏找个好位置，疯狂地甩头（Headbanging）", vibes: ['metal', 'dark'] }, { text: "默默退到人群后方或二楼，生怕被撞飞", vibes: ['pop', 'folk'] }, { text: "觉得有点野蛮，我更喜欢安静沉浸地听音乐", vibes: ['post', 'retro'] }]},
-            { text: "以下哪种乐器音色最能瞬间点燃你的血液？", options: [{ text: "极其沉重、如推土机般碾压的失真吉他Riff", vibes: ['metal', 'dark'] }, { text: "粗糙刺耳、充满颗粒感和反叛味道的Fuzz法兹", vibes: ['punk', 'psyche'] }, { text: "清脆明亮、带着一点点混响的空间感木吉他", vibes: ['folk', 'pop'] }, { text: "层层叠叠、不断攀升直至轰鸣的合成器音墙", vibes: ['post', 'retro'] }]},
-            { text: "当你感到生活充满压抑和极度愤怒时，哪种方式最能治愈你？", options: [{ text: "听极端暴躁的双踩鼓点和死核嘶吼，以暴制暴", vibes: ['metal', 'punk'] }, { text: "找个没人的角落，戴上耳机与世界彻底隔绝", vibes: ['post', 'dark'] }, { text: "约朋友去路边摊大醉一场，借着酒劲把烦恼骂出来", vibes: ['pop', 'folk'] }, { text: "听一些脱离现实的迷幻音乐，让大脑进入太空漫游", vibes: ['psyche', 'retro'] }]},
-            { text: "你如何看待音乐和艺术中的“极端审美”（如死亡、深渊、异教等元素）？", options: [{ text: "绝佳的表达！它撕破了世界虚伪的和平表象", vibes: ['metal', 'dark'] }, { text: "只要够酷够有反抗精神就行，形式并不重要", vibes: ['punk', 'psyche'] }, { text: "有点让人不适，我还是更向往积极或唯美的事物", vibes: ['pop', 'folk'] }, { text: "可以理解，但我个人更偏爱克制而充满隐喻的表达", vibes: ['post', 'retro'] }]},
-            { text: "音乐节遇到泥地，你的反应是：", options: [{ text: "脱鞋跳进去泥浆浴，弄脏了更摇滚！", vibes: ['punk', 'metal'] }, { text: "穿上雨靴和漂亮雨衣，趁机拍几组废土风照片", vibes: ['pop', 'retro'] }, { text: "极其嫌弃，尽量踮着脚躲到没泥的草坪去", vibes: ['dark', 'post'] }, { text: "坐在泥坑边上发呆，看着这群狂欢的人群", vibes: ['folk', 'psyche'] }]},
-            { text: "看演出时如果被挤到最后排，你会：", options: [{ text: "随遇而安，反正能听到声音就行，正好不用人挤人", vibes: ['pop', 'folk'] }, { text: "本来就想躲开人群，我在后排可以尽情闭眼沉浸", vibes: ['post', 'dark'] }, { text: "绝对不行！拼了老命、借着Pogo也要挤回第一排", vibes: ['punk', 'metal'] }, { text: "在后面视野更开阔，正好一边喝酒一边看灯光", vibes: ['psyche', 'retro'] }]},
-            { text: "演出中间主唱让你开手机闪光灯，你会：", options: [{ text: "乖乖打开手电筒跟着大家一起摇晃", vibes: ['pop', 'folk'] }, { text: "觉得有点俗套，但还是碍于气氛照做了", vibes: ['post', 'retro'] }, { text: "坚决不开，甚至觉得这种互动极其傻逼", vibes: ['punk', 'metal'] }, { text: "趁机闭上眼，享受这片刻人造的星光", vibes: ['dark', 'psyche'] }]},
-            { text: "音乐节露营区，深夜你在干嘛：", options: [{ text: "拿把破吉他跟隔壁帐篷的新朋友弹琴唱歌", vibes: ['folk', 'pop'] }, { text: "跟一群刚认识的金属党喝酒喝到断片", vibes: ['punk', 'metal'] }, { text: "一个人坐在帐篷外抽烟，看着远处的舞台骨架", vibes: ['post', 'dark'] }, { text: "去别的营地乱窜，寻找各种奇怪的地下派对", vibes: ['psyche', 'retro'] }]},
-            { text: "抢到了Livehouse的第一排（趴栏杆），你的姿势是：", options: [{ text: "疯狂甩头，全程死死抓着栏杆随时准备接乐手跳水", vibes: ['metal', 'punk'] }, { text: "找好机位，稳稳地录下最爱的几首歌", vibes: ['pop', 'retro'] }, { text: "闭着眼、双手抱胸或扶着下巴，完全沉浸在音响里", vibes: ['post', 'dark'] }, { text: "跟着节奏随意摇晃身体，偶尔跟台上的乐手抛个媚眼", vibes: ['folk', 'psyche'] }]},
-            { text: "在Livehouse排队检票时，你通常：", options: [{ text: "跟同行的朋友一直聊天，商量待会怎么站位", vibes: ['pop', 'folk'] }, { text: "去旁边的便利店买几罐啤酒，提前喝两口预热", vibes: ['punk', 'metal'] }, { text: "戴着降噪耳机，表情冷漠，谁也不理", vibes: ['dark', 'post'] }, { text: "仔细观察队伍里其他乐迷的穿搭和各种乐队T恤", vibes: ['psyche', 'retro'] }]},
-            { text: "如果台上乐手突然跳水（Stage Dive）冲向你，你会：", options: [{ text: "死死托住他，大声尖叫，甚至想把他扔回舞台", vibes: ['metal', 'punk'] }, { text: "吓了一跳，本能地往两边躲开生怕被砸到", vibes: ['pop', 'folk'] }, { text: "兴奋地伸出手，趁机摸两把他身上的汗水", vibes: ['retro', 'psyche'] }, { text: "默默让开一点空间，冷眼看着这群疯狂的人", vibes: ['post', 'dark'] }]},
-            { text: "对于音乐节的“开小火车”（互相搭肩膀跑圈）行为，你觉得：", options: [{ text: "太躁了，这是演出必须有的仪式感，必须加入！", vibes: ['punk', 'metal'] }, { text: "偶尔跟着跑两步挺开心的，大家都很热情", vibes: ['pop', 'folk'] }, { text: "像猴戏一样无聊，我绝对不会参与这种破事", vibes: ['post', 'dark'] }, { text: "站在圈外看着他们跑，觉得有点好笑又有点可爱", vibes: ['psyche', 'retro'] }]},
-            { text: "当听到一首你完全没听过但很好听的现场新歌时，你会：", options: [{ text: "赶紧拿出手机开听歌识曲或者录一小段", vibes: ['pop', 'retro'] }, { text: "管他叫啥名字，好听就先跟着节奏晃起来", vibes: ['punk', 'metal'] }, { text: "默默记住某句特别的歌词，准备回去慢慢搜", vibes: ['post', 'dark'] }, { text: "闭上眼睛，完全放空自己，沉浸在未知的旋律里", vibes: ['psyche', 'folk'] }]},
-            { text: "演出结束后，乐迷们都在喊“安可（Encore）”，你的状态是：", options: [{ text: "嗓子都喊哑了，跟着全场一起用最大声狂吼", vibes: ['punk', 'metal'] }, { text: "有节奏地拍着手，充满期待地等着他们返场", vibes: ['pop', 'folk'] }, { text: "觉得差不多得了，已经开始往出口走准备退场了", vibes: ['dark', 'post'] }, { text: "用手指吹口哨，或者敲击护栏制造点奇怪的动静", vibes: ['retro', 'psyche'] }]},
-            { text: "如果你有机会去后台和乐队合影，你会：", options: [{ text: "激动地要签名合照，马上发到朋友圈和小红书", vibes: ['pop', 'retro'] }, { text: "走过去拍拍主唱的肩膀，递根烟或者递瓶酒", vibes: ['punk', 'metal'] }, { text: "远远地點个头表达敬意，不想打扰他们的私下时间", vibes: ['dark', 'post'] }, { text: "拉住吉他手，跟他硬聊刚才那首歌的特殊编曲和设备", vibes: ['folk', 'psyche'] }]},
-            { text: "去Livehouse看演出，你通常会买什么周边？", options: [{ text: "印着骷髅或夸张大Logo的纯黑色乐队T恤", vibes: ['metal', 'punk'] }, { text: "设计感很强、配色好看的帆布袋、徽章或贴纸", vibes: ['retro', 'pop'] }, { text: "只买音乐本身：黑胶唱片或者实体CD", vibes: ['post', 'dark'] }, { text: "乐队自己手工做的一些奇奇怪怪的小玩意", vibes: ['psyche', 'folk'] }]},
-            { text: "演出场地太热，没空调汗流浃背，你的感觉是：", options: [{ text: "这他妈就是摇滚乐的洗礼！越热越躁！", vibes: ['punk', 'metal'] }, { text: "令人窒息的恶劣环境，想赶紧出去透口气", vibes: ['post', 'dark'] }, { text: "确实有点难受，但为了现场的氛围我忍了", vibes: ['pop', 'retro'] }, { text: "感觉大家的汗水和灵魂都在这个高温里融化在了一起", vibes: ['folk', 'psyche'] }]},
-            { text: "在音乐节的市集区，你最容易被什么摊位吸引？", options: [{ text: "卖复古花衬衫、二手古着和老式相机的铺子", vibes: ['retro', 'pop'] }, { text: "卖奇奇怪怪的手串、印度香和算塔罗牌的角落", vibes: ['folk', 'psyche'] }, { text: "废话，当然是直接走向卖精酿啤酒的吧台", vibes: ['metal', 'punk'] }, { text: "卖独立小众杂志、地下艺术出版物和诗集的摊位", vibes: ['dark', 'post'] }]},
-            { text: "关于Livehouse抢票，你的真实态度是：", options: [{ text: "准点设闹钟疯狂按，抢不到宁愿加点价去收黄牛票", vibes: ['pop', 'retro'] }, { text: "抢不到拉倒，大不了去门口碰碰运气看有没有人原价转", vibes: ['punk', 'metal'] }, { text: "极其随缘，我现在只看那些根本不需要抢票的小众演出", vibes: ['post', 'dark'] }, { text: "佛系得很，抢到哪个看哪个，一切都是命运的安排", vibes: ['folk', 'psyche'] }]},
-            { text: "你平时听歌的主要载体和设备是：", options: [{ text: "高保真头戴式耳机或专业监听音响，绝不妥协音质", vibes: ['post', 'dark'] }, { text: "充满仪式感的黑胶唱片机或者是老式磁带机", vibes: ['retro', 'psyche'] }, { text: "手机直接外放，或者随便抓一副蓝牙耳机就行", vibes: ['pop', 'folk'] }, { text: "在开车或骑车的时候，把低音炮开到最大声震街", vibes: ['metal', 'punk'] }]},
-            { text: "当你听到别人说“摇滚已死”时，你心里想：", options: [{ text: "放你妈的屁，只要老子还在听，摇滚就没死！", vibes: ['metal', 'punk'] }, { text: "确实死了，现在这种消费主义的环境根本不配有摇滚", vibes: ['dark', 'post'] }, { text: "死不死的没关系啊，现在的歌只要好听不就行了", vibes: ['pop', 'folk'] }, { text: "摇滚从来没死，它只是换成了电子、实验等另一种形式存在", vibes: ['retro', 'psyche'] }]},
-            { text: "如果有人在看演出时狠狠踩了你一脚，你通常会：", options: [{ text: "皱个眉头很无语，但也只能算了，毕竟人多", vibes: ['pop', 'folk'] }, { text: "立马瞪他一眼，不过如果在Pogo那就算了", vibes: ['metal', 'punk'] }, { text: "觉得一阵烦躁，然后默默挪开换到一个没人的角落", vibes: ['dark', 'post'] }, { text: "完全没反应，我当时已经闭上眼沉浸在自己的世界里了", vibes: ['retro', 'psyche'] }]},
-            { text: "你最喜欢的现场舞台灯光是哪种？", options: [{ text: "全场暗下来，只有一束极度孤独的冷光打在主唱身上", vibes: ['dark', 'post'] }, { text: "迷乱、炫目、充满空间感的频闪和彩色激光交织", vibes: ['psyche', 'retro'] }, { text: "温暖柔和、像满天星光一样的黄色钨丝灯泡串", vibes: ['pop', 'folk'] }, { text: "随着重低音和鼓点全场疯狂爆闪的白光", vibes: ['punk', 'metal'] }]},
-            { text: "关于音乐节里举着大旗子的行为，你的看法是：", options: [{ text: "那是厂牌和帮派的象征，太有面儿了，必须举！", vibes: ['metal', 'punk'] }, { text: "挺好的呀，非常适合用来做地标，方便找走散的朋友", vibes: ['pop', 'retro'] }, { text: "极其自私且傻逼，完全挡住了后面人的视线", vibes: ['post', 'dark'] }, { text: "看着那些印着奇怪口号的旗子随风飘扬，感觉有点浪漫", vibes: ['folk', 'psyche'] }]},
-            { text: "对于摇滚歌词里出现的粗口（F-word等），你觉得：", options: [{ text: "必须有！那是愤怒到极点时最直接的情绪宣泄口", vibes: ['punk', 'metal'] }, { text: "只要符合整个黑暗语境，粗口也是一种粗粝的诗意", vibes: ['dark', 'post'] }, { text: "偶尔有一两个确实挺酷的，但为了骂而骂就受不了", vibes: ['pop', 'folk'] }, { text: "无所谓啊，在我听来人声发出的声音只是一种乐器音色", vibes: ['retro', 'psyche'] }]},
-            { text: "你认为去音乐节/Livehouse看演出，需要穿特定风格的衣服吗？", options: [{ text: "当然，必须要精心搭配妆容和穿搭，这是对演出的尊重", vibes: ['retro', 'pop'] }, { text: "黑色乐队T恤配马丁靴或者帆布鞋是基本标配", vibes: ['punk', 'metal'] }, { text: "越不起眼越好，最好全身黑，我只是个来听声音的幽灵", vibes: ['dark', 'post'] }, { text: "怎么舒服怎么穿，大裤衩配拖鞋也完全没问题", vibes: ['folk', 'psyche'] }]},
-            { text: "如果演出现场进行到一半，有人突然下跪求婚，你会：", options: [{ text: "觉得好浪漫啊，跟着大家一起欢呼送上祝福", vibes: ['pop', 'folk'] }, { text: "满脸黑线，觉得这帮人是不是走错场子跑这儿作秀来了", vibes: ['punk', 'metal'] }, { text: "觉得非常矫情且恶心，完全破坏了我听歌的心境", vibes: ['dark', 'post'] }, { text: "觉得有点荒诞，像是在看一场不合时宜的行为艺术", vibes: ['retro', 'psyche'] }]},
-            { text: "遇到前奏长达两三分钟的歌，你的反应通常是：", options: [{ text: "太棒了，我就喜欢这种情绪被慢慢拉扯、慢慢沉入的氛围", vibes: ['post', 'dark'] }, { text: "有点急躁，想直接快进跳到副歌高潮开始甩", vibes: ['metal', 'punk'] }, { text: "闭上眼，仔细享受每一种合成器和吉他音色的交织", vibes: ['retro', 'psyche'] }, { text: "耐心有点不够，会有点走神，甚至开始刷两下手机", vibes: ['pop', 'folk'] }]},
-            { text: "在摇滚/独立音乐圈，你最看不起什么行为？", options: [{ text: "满嘴摇滚精神，实际上装逼摆谱、一点也不真诚的人", vibes: ['metal', 'punk'] }, { text: "没有独立思考能力，带着荧光棒把摇滚当爱豆追的饭圈粉", vibes: ['dark', 'post'] }, { text: "充满优越感和戾气，整天在网上拉踩贬低其他风格的人", vibes: ['retro', 'pop'] }, { text: "为了赚钱迎合市场，写出来的歌全是套路、失去初心的乐队", vibes: ['folk', 'psyche'] }]},
-            { text: "如果有一天你不再听摇滚了，原因可能会是：", options: [{ text: "生活被柴米油盐彻底填满，我已经没有多余的力气去愤怒了", vibes: ['folk', 'pop'] }, { text: "我对世界彻底绝望，觉得再多深刻的音乐也无法拯救我了", vibes: ['dark', 'post'] }, { text: "绝对不可能有这一天，摇滚已经刻进了我的骨血里", vibes: ['punk', 'metal'] }, { text: "可能是我找到了比传统摇滚更酷、更先锋的电子实验艺术", vibes: ['retro', 'psyche'] }]},
-            { text: "对于目前各种短视频平台带火的“网红乐队”，你的态度是：", options: [{ text: "敬而远之，一听到那种套路和弦就头疼，更受不了饭圈那套", vibes: ['dark', 'post'] }, { text: "无所谓啊，如果旋律写得确实好听，网红一点也没关系", vibes: ['pop', 'retro'] }, { text: "只要现场够躁够狠，实力过硬，管他在网上红不红", vibes: ['punk', 'metal'] }, { text: "存在即合理吧，也许爆红的背后有我没发现的闪光点", vibes: ['folk', 'psyche'] }]},
-            { text: "在你心中，一次堪称完美的Livehouse体验是怎样的？", options: [{ text: "全场毫无保留地互相冲撞，汗水交织，大汗淋漓地走出来", vibes: ['metal', 'punk'] }, { text: "灵魂被巨大的音墙彻底洗涤，演出结束后陷入长时间的沉默", vibes: ['post', 'dark'] }, { text: "氛围超级好，和全场合唱了最爱的那首歌，甚至感动到哭", vibes: ['pop', 'folk'] }, { text: "像喝醉了一样，被光影和合成器带走，度过了一个迷幻的夜晚", vibes: ['retro', 'psyche'] }]},
-            
-            // 抽象代入感题
-            { text: "音乐节大合影环节，你通常在哪个位置？", options: [{ text: "必须抢到第一排，举着大旗疯狂露脸", vibes: ['punk', 'metal'] }, { text: "在中间地带，开心地比个摇滚手势", vibes: ['pop', 'retro'] }, { text: "早就撤到边缘或者去买水了，不喜欢凑热闹", vibes: ['post', 'folk'] }, { text: "在角落里，用冷酷的眼神看着镜头", vibes: ['dark', 'psyche'] }]},
-            { text: "如果要在摇滚圈找个对象，你最看重对方什么？", options: [{ text: "必须和我喜欢同一个乐队，听歌品味高度一致", vibes: ['post', 'retro'] }, { text: "能陪我一起在泥地里Pogo、疯狂发泄的灵魂伴侣", vibes: ['punk', 'metal'] }, { text: "懂我的沉默和脆弱，能一起在深夜发呆", vibes: ['dark', 'folk'] }, { text: "品味不同没关系，只要够酷、有自己独立的世界观就行", vibes: ['psyche', 'pop'] }]},
-            { text: "你的年度听歌报告，通常是什么画风？", options: [{ text: "全是各种小众到没几个人听过的地下暗黑/后摇乐队", vibes: ['dark', 'psyche'] }, { text: "重型、朋克，充满脏话和失真吉他的硬核现场版", vibes: ['metal', 'punk'] }, { text: "温柔的民谣和充满浪漫气息的流行摇滚", vibes: ['folk', 'pop'] }, { text: "没有歌词的纯器乐、数学摇滚和后摇长篇", vibes: ['post', 'retro'] }]},
-            { text: "如果用一种动物来形容你的灵魂，你觉得是：", options: [{ text: "一只在深夜旷野里独自嚎叫的孤狼", vibes: ['metal', 'dark'] }, { text: "城市废墟里警惕又自由的流浪野猫", vibes: ['punk', 'folk'] }, { text: "在深海里发出52赫兹频率，无人听懂的孤鲸", vibes: ['post', 'psyche'] }, { text: "阳光下慵懒伸懒腰的柴犬", vibes: ['pop', 'retro'] }]},
-            { text: "想象你站在一条岔路口，前面有四条路，你会选哪条？", options: [{ text: "布满荆棘、充满未知危险的黑暗森林", vibes: ['metal', 'dark'] }, { text: "霓虹灯闪烁、充满复古跑车和合成器音效的午夜公路", vibes: ['retro', 'pop'] }, { text: "漫天黄沙、看不见尽头的大西北戈壁", vibes: ['folk', 'punk'] }, { text: "漂浮着几何图形、没有重力的外太空轨道", vibes: ['psyche', 'post'] }]},
-            { text: "如果你有一盘可以穿越时空的录像带，你想回到：", options: [{ text: "90年代的树村，感受最原始的死磕摇滚精神", vibes: ['punk', 'metal'] }, { text: "2000年初的台湾，听最正宗的台式浪漫情歌", vibes: ['pop', 'retro'] }, { text: "80年代的英国，沉浸在后朋克和英伦摇滚的浪潮里", vibes: ['dark', 'post'] }, { text: "60年代的伍德斯托克，体验爱与和平的迷幻狂欢", vibes: ['psyche', 'folk'] }]},
-            { text: "朋友评价你最常用的词是：", options: [{ text: "脾气火爆，直来直往的愤青", vibes: ['punk', 'metal'] }, { text: "神神叨叨，脑回路清奇的艺术家", vibes: ['psyche', 'post'] }, { text: "敏感细腻，容易深夜emo的诗人", vibes: ['dark', 'folk'] }, { text: "浪漫随性，好相处的有趣灵魂", vibes: ['pop', 'retro'] }]},
-            { text: "凌晨三点，你独自一人在空无一人的马路上，你会干嘛？", options: [{ text: "戴着耳机闭着眼，假装自己在拍一部文艺电影", vibes: ['post', 'pop'] }, { text: "坐在马路牙子上抽根烟，感叹人生的虚无", vibes: ['dark', 'folk'] }, { text: "大吼一声，或者一脚踢飞路边的易拉罐", vibes: ['punk', 'metal'] }, { text: "觉得路灯的光晕像UFO，站在原地盯着看半天", vibes: ['psyche', 'retro'] }]},
-            { text: "如果你的生活变成一种吉他效果器，它是：", options: [{ text: "失真 (Distortion)：暴躁、颗粒感、充满破坏力", vibes: ['punk', 'metal'] }, { text: "混响 (Reverb)：空灵、深邃、像在一个巨大的山洞里", vibes: ['post', 'dark'] }, { text: "延迟 (Delay)：浪漫、回味悠长、层层叠叠的记忆", vibes: ['retro', 'pop'] }, { text: "哇音 (Wah-Wah)：迷幻、扭曲、不按常理出牌", vibes: ['psyche', 'folk'] }]},
-            { text: "在摇滚乐里，“反叛”对你意味着什么？", options: [{ text: "对抗权威和一切不公，用最硬核的行动去冲撞", vibes: ['punk', 'metal'] }, { text: "保持清醒和极度的独立思考，绝不随波逐流", vibes: ['dark', 'post'] }, { text: "勇敢地追求真爱和自己想要的自由生活方式", vibes: ['pop', 'folk'] }, { text: "打破常规、突破传统乐理的艺术边界", vibes: ['psyche', 'retro'] }]},
-            { text: "以下哪个词语组合，最能让你产生共鸣？", options: [{ text: "啤酒、汗水、断裂的鼓槌", vibes: ['punk', 'metal'] }, { text: "星空、深海、无尽的回声", vibes: ['post', 'psyche'] }, { text: "晚风、火车、流浪的站台", vibes: ['folk', 'retro'] }, { text: "废墟、霓虹、破碎的梦境", vibes: ['dark', 'pop'] }]},
-            { text: "当你戴着耳机，在地铁里看到一个穿着同款小众乐队T恤的人，你会：", options: [{ text: "激动地上去打招呼：卧槽你也喜欢他们？！", vibes: ['punk', 'pop'] }, { text: "默默在心里给TA点个赞，但绝不主动开口说话", vibes: ['post', 'dark'] }, { text: "假装没看到，内心觉得“现在的跟风粉真多”", vibes: ['metal', 'psyche'] }, { text: "眼神交流，默契地互相点个头致意", vibes: ['folk', 'retro'] }]},
-            { text: "你觉得什么样的Livehouse最对味？", options: [{ text: "必须有超大的开阔场地，能容纳几百人一起开死墙", vibes: ['metal', 'punk'] }, { text: "灯光要迷幻，音响要能把耳膜震碎，氛围感拉满", vibes: ['post', 'psyche'] }, { text: "空间不用太大，但酒要便宜，老板要有人情味", vibes: ['folk', 'retro'] }, { text: "审美要好，周边要好看，场地得适合拍照打卡", vibes: ['pop', 'dark'] }]},
-            { text: "在Livehouse看演出，如果旁边的陌生人突然递给你一瓶酒，你会？", options: [{ text: "毫不犹豫地接过来干了，今晚大家都是兄弟！", vibes: ['punk', 'metal'] }, { text: "礼貌地碰个杯，趁机加个微信聊聊喜欢的乐队", vibes: ['pop', 'retro'] }, { text: "警惕地摆摆手拒绝，我更喜欢自己一个人待着", vibes: ['dark', 'post'] }, { text: "觉得这是一种神秘的缘分，接过来抿一口", vibes: ['psyche', 'folk'] }]},
-            { text: "想象你正在写一首摇滚乐，第一句歌词会关于什么？", options: [{ text: "极其直白地控诉这个操蛋的时代和虚伪的人类", vibes: ['dark', 'punk'] }, { text: "描述一个迷离的梦境或者一种无法形容的色彩", vibes: ['psyche', 'post'] }, { text: "讲述一段无疾而终的爱情或者远方的故乡", vibes: ['folk', 'pop'] }, { text: "我不需要歌词，先给我来一段3分钟的吉他Solo", vibes: ['metal', 'retro'] }]}
-        ];
-
-        const QUIZ_LENGTH = 30;
-
-        // ================= 53 大乐队人格数据库 =================
+        // ================= 严格的 18 支本地乐队数据库 (对应16型属性) =================
         const bands = [
-            { name: "草东没有派对", title: "草东爱好者", quote: "预备！各就各位 一二三跳 跳进染缸", v1: 'dark', v2: 'punk', colors: ['#18181b', '#3f3f46'], baseSvg: 'dark' },
-            { name: "重塑雕像的权利", title: "重塑的精密齿轮", quote: "Drink a toast to the ones who are dying", v1: 'dark', v2: 'post', colors: ['#0f172a', '#dc2626'], baseSvg: 'dark' },
-            { name: "秘密行动", title: "秘密行动的暗夜舞者", quote: "在废墟中跳舞", v1: 'dark', v2: 'retro', colors: ['#111827', '#6b7280'], baseSvg: 'dark' },
-            { name: "木马乐队", title: "木马的旧城诗人", quote: "这是没有时间的城市", v1: 'dark', v2: 'retro', colors: ['#2e1065', '#1e1b4b'], baseSvg: 'dark' },
-            { name: "惘闻", title: "惘闻的深海潜艇", quote: "水下没有光，但有无尽的声波", v1: 'post', v2: 'dark', colors: ['#0c4a6e', '#082f49'], baseSvg: 'post' },
-            { name: "缺省", title: "缺省的太空梦", quote: "把我的身体扔进这片星云", v1: 'post', v2: 'psyche', colors: ['#4c1d95', '#3b0764'], baseSvg: 'post' },
-            { name: "声音碎片", title: "碎片的优美尘埃", quote: "情歌而已，这只是一首情歌", v1: 'post', v2: 'folk', colors: ['#374151', '#9ca3af'], baseSvg: 'post' },
-            { name: "刺猬", title: "刺猬的青春火种", quote: "一代人终将老去，但总有人正年轻", v1: 'punk', v2: 'dark', colors: ['#b91c1c', '#000000'], baseSvg: 'punk' },
-            { name: "新裤子", title: "新裤子的精神股东", quote: "那平淡如水的生活，因为你而火热", v1: 'punk', v2: 'pop', colors: ['#dc2626', '#facc15'], baseSvg: 'punk' },
-            { name: "反光镜", title: "反光镜的晚安北京", quote: "我们的歌，我们的生活", v1: 'punk', v2: 'pop', colors: ['#ef4444', '#1f2937'], baseSvg: 'punk' },
-            { name: "脑浊", title: "脑浊的死磕混子", quote: "永远年轻，永远热泪盈眶", v1: 'punk', v2: 'retro', colors: ['#991b1b', '#000000'], baseSvg: 'punk' },
-            { name: "痛仰", title: "痛仰的信徒", quote: "一直往南方开，一直往南方开", v1: 'metal', v2: 'pop', colors: ['#111827', '#dc2626'], baseSvg: 'metal' },
-            { name: "假假條", title: "假假條的乐手", quote: "时代在召唤，我们在嚎丧", v1: 'metal', v2: 'dark', colors: ['#450a0a', '#111827'], baseSvg: 'metal' },
-            { name: "万能青年旅店", title: "万青的兵", quote: "大梦一场的董二千先生", v1: 'folk', v2: 'post', colors: ['#1e3a8a', '#60a5fa'], baseSvg: 'folk' },
-            { name: "二手玫瑰", title: "二手的红绿接班人", quote: "哎呀我说命运啊，生存啊", v1: 'folk', v2: 'metal', colors: ['#16a34a', '#dc2626'], baseSvg: 'folk' },
-            { name: "五条人", title: "五条人的塑料袋", quote: "阿珍爱上了阿强", v1: 'folk', v2: 'retro', colors: ['#ca8a04', '#ef4444'], baseSvg: 'folk' },
-            { name: "赵雷", title: "赵雷的成都过客", quote: "永远都像初次见你那样", v1: 'folk', v2: 'folk', colors: ['#78350f', '#d97706'], baseSvg: 'folk' },
-            { name: "回春丹", title: "回春丹的狗", quote: "我的心啊我的心啊整栋出租", v1: 'pop', v2: 'retro', colors: ['#e11d48', '#f43f5e'], baseSvg: 'pop' },
-            { name: "橘子海", title: "橘子海的夏日冰块", quote: "Summer is for falling in love", v1: 'pop', v2: 'psyche', colors: ['#f97316', '#fdba74'], baseSvg: 'pop' },
-            { name: "落日飞车", title: "飞车的浪漫废人", quote: "I know you know I love you", v1: 'pop', v2: 'retro', colors: ['#db2777', '#f472b6'], baseSvg: 'pop' },
-            { name: "夏日入侵企画", title: "夏日的赴约者", quote: "极恶都市里的最后浪漫", v1: 'pop', v2: 'punk', colors: ['#0ea5e9', '#38bdf8'], baseSvg: 'pop' },
-            { name: "盘尼西林", title: "盘尼西林的雨夜盲人", quote: "Say it again, say it again", v1: 'retro', v2: 'punk', colors: ['#475569', '#cbd5e1'], baseSvg: 'retro' },
-            { name: "卧轨的火车", title: "卧轨的迷幻客", quote: "闭上眼，火车开进大脑", v1: 'psyche', v2: 'retro', colors: ['#c026d3', '#f0abfc'], baseSvg: 'psyche' },
-            { name: "安溥", title: "安溥的思考者", quote: "去挥霍和珍惜是同一件事情", v1: 'psyche', v2: 'folk', colors: ['#047857', '#a7f3d0'], baseSvg: 'psyche' },
-            { name: "雾也至", title: "雾也至的观测者", quote: "人类文明，爱意永存", v1: 'psyche', v2: 'pop', colors: ['#e11d48', '#fda4af'], baseSvg: 'psyche' },
-            
-            { name: "夜叉", title: "夜叉的捍卫者", quote: "如果还有明天，我仍要捍卫这一切", v1: 'metal', v2: 'punk', colors: ['#450a0a', '#000000'], baseSvg: 'metal' },
-            { name: "扭曲的机器", title: "扭机的铁托", quote: "我们来自地下，我们坚不可摧", v1: 'metal', v2: 'pop', colors: ['#7f1d1d', '#111827'], baseSvg: 'metal' },
-            { name: "窒息", title: "窒息的硬骨头", quote: "身躯已僵硬，灵魂却不屈", v1: 'metal', v2: 'metal', colors: ['#1c1917', '#000000'], baseSvg: 'metal' },
-            { name: "肆伍", title: "肆伍的死核战士", quote: "在深渊中撕裂黑暗", v1: 'metal', v2: 'dark', colors: ['#312e81', '#000000'], baseSvg: 'metal' },
-            { name: "郁乐队", title: "郁的悲水守护者", quote: "悲伤逆流成河，金属依然铿锵", v1: 'metal', v2: 'post', colors: ['#1e3a8a', '#111827'], baseSvg: 'metal' },
-            { name: "霜冻前夜", title: "霜冻的守夜人", quote: "极寒之中，等待破晓", v1: 'metal', v2: 'psyche', colors: ['#0f172a', '#0c4a6e'], baseSvg: 'metal' },
-            { name: "葬尸湖", title: "葬尸湖的孤魂", quote: "黑色的水面平静无波，深渊在凝视", v1: 'dark', v2: 'metal', colors: ['#000000', '#1c1917'], baseSvg: 'dark' },
-            { name: "零壹", title: "零壹的萨满", quote: "神明不语，唯有钟鼓齐鸣", v1: 'metal', v2: 'folk', colors: ['#78350f', '#450a0a'], baseSvg: 'metal' },
-            
-            { name: "文雀 (Sparrow)", title: "文雀的报春鸟", quote: "南方没有冷空气，北方没有你", v1: 'post', v2: 'pop', colors: ['#0d9488', '#34d399'], baseSvg: 'post' },
-            { name: "时过夏末", title: "夏末的余温", quote: "时间带走一切，留下漫长的告别", v1: 'post', v2: 'dark', colors: ['#312e81', '#6b21a8'], baseSvg: 'post' },
-            { name: "Chinese Football", title: "国足的替补队员", quote: "游戏开始，这是盲人瞎马的冲刺", v1: 'post', v2: 'punk', colors: ['#0284c7', '#7dd3fc'], baseSvg: 'pop' },
-            { name: "toe", title: "toe的节拍器", quote: "Goodbye，在复杂的不规则里找平静", v1: 'post', v2: 'retro', colors: ['#b45309', '#fcd34d'], baseSvg: 'retro' },
-            { name: "大象体操 (Elephant Gym)", title: "大象的平衡木", quote: "在水底，看星星", v1: 'post', v2: 'pop', colors: ['#db2777', '#f472b6'], baseSvg: 'pop' },
-            { name: "Sigur Rós", title: "冰岛的纯白精灵", quote: "Takk...（在冰原上唱着无人听懂的诗）", v1: 'post', v2: 'psyche', colors: ['#818cf8', '#e0e7ff'], baseSvg: 'psyche' },
-            { name: "Explosions in the Sky", title: "天空的爆裂物", quote: "The Earth Is Not a Cold Dead Place", v1: 'post', v2: 'metal', colors: ['#991b1b', '#fca5a5'], baseSvg: 'post' },
-            { name: "Godspeed You! Black Emperor", title: "黑帝的末日狂徒", quote: "The car's on fire, and there's no driver at the wheel", v1: 'dark', v2: 'post', colors: ['#111827', '#6b7280'], baseSvg: 'dark' },
-            { name: "MONO", title: "Mono的朝圣者", quote: "Nowhere, Now Here", v1: 'post', v2: 'dark', colors: ['#0f172a', '#94a3b8'], baseSvg: 'post' },
-            { name: "Pg.Lost", title: "Pg.Lost的迷途者", quote: "在厚重的音墙里寻找出路", v1: 'post', v2: 'metal', colors: ['#3f3f46', '#a1a1aa'], baseSvg: 'post' },
-
-            // === 补全新增的多维组合乐队，达成 53 支防撞车 ===
-            { name: "康姆士", title: "康姆士的恐龙", quote: "你永远是我的宝贝", v1: 'pop', v2: 'pop', colors: ['#6366f1', '#a5b4fc'], baseSvg: 'pop' },
-            { name: "旅行团", title: "旅行团的乘客", quote: "永远都会在，我们永远都会在", v1: 'pop', v2: 'retro', colors: ['#f59e0b', '#fde68a'], baseSvg: 'pop' },
-            { name: "海龟先生", title: "海龟的阳光男孩", quote: "玛卡瑞纳，我们在阳光下", v1: 'pop', v2: 'folk', colors: ['#10b981', '#34d399'], baseSvg: 'pop' },
-            { name: "Carsick Cars", title: "Carsick的噪音", quote: "中南海，中南海", v1: 'psyche', v2: 'punk', colors: ['#b91c1c', '#f87171'], baseSvg: 'psyche' },
-            { name: "声音玩具", title: "声玩的浪漫残党", quote: "明天你依旧在我身旁", v1: 'retro', v2: 'post', colors: ['#86198f', '#d946ef'], baseSvg: 'retro' },
-            { name: "傻子与白痴", title: "傻白的夜行生物", quote: "你终究不爱这世界", v1: 'pop', v2: 'dark', colors: ['#3b82f6', '#1e3a8a'], baseSvg: 'pop' },
-            { name: "丢火车", title: "丢火车的旅人", quote: "晚安，火车", v1: 'folk', v2: 'pop', colors: ['#64748b', '#334155'], baseSvg: 'folk' },
-            { name: "房东的猫", title: "房猫的屋檐雨", quote: "那是美好的，却不属于我", v1: 'folk', v2: 'pop', colors: ['#fbcfe8', '#93c5fd'], baseSvg: 'folk' },
-            { name: "野孩子", title: "野孩子的黄河水", quote: "黄河谣，唱给谁听", v1: 'folk', v2: 'folk', colors: ['#d97706', '#9a3412'], baseSvg: 'folk' },
-            { name: "郭顶", title: "郭顶的星际乘客", quote: "如果水星有生命", v1: 'retro', v2: 'pop', colors: ['#1e40af', '#60a5fa'], baseSvg: 'retro' }
+            { rbti: 'ESTP', name: '新裤子', title: '精神股东', quote: '那平淡如水的生活，因为你而火热', color: '#dc2626', desc: '永远年轻，永远在世俗中狂欢。你有着强烈的街头智慧和感染力。', image: '新裤子.png' },
+            { rbti: 'ESFP', name: '回春丹', title: '回春丹的狗', quote: '我的心啊我的心啊整栋出租', color: '#e11d48', desc: '你是舞池里的荷尔蒙发动机。你不喜欢大道理，只想要此刻最直接的浪漫与狂热。', image: '回春丹.png' },
+            { rbti: 'ESTJ', name: '萨满', title: '萨满的战锤', quote: '在风暴中屹立不倒', color: '#1c1917', desc: '你充满爆发力但绝不盲目，喜欢用坚实的结构和硬核的实力去掌控现场的一切。', image: '萨满.png' },
+            { rbti: 'ESFJ', name: '逃跑计划', title: '夜空中最亮的星', quote: '每当我找不到存在的意义，每当迷失在黑夜里', color: '#2563eb', desc: '你是天生的粘合剂。你的音乐节体验永远是和朋友们在最熟悉的旋律里大声合唱。', image: '逃跑计划.png' },
+            { rbti: 'ENTP', name: '九宝', title: '九宝的萨满', quote: '喝下这杯酒，去草原上战斗', color: '#b45309', desc: '你热衷于用最硬核的方式去解构传统。你讨厌平庸，只想在充满力量的实验中寻找刺激。', image: '九宝.png' },
+            { rbti: 'ENFP', name: '雾也至', title: '雾也至的观测者', quote: '人类文明，爱意永存', color: '#d946ef', desc: '你的灵魂浪漫且天马行空。总是充满奇思妙想，随时准备在宇宙中开启一场华丽的梦。', image: '雾也至.png' },
+            { rbti: 'ENTJ', name: '秘密行动', title: '暗夜舞者', quote: '在废墟中跳起冰冷的舞', color: '#111827', desc: '你像一台精密的冷血机器。强大的执行力与深邃的审美，让你在黑暗中也能掌控全局。', image: 'myy.png' },
+            { rbti: 'ENFJ', name: '霓虹花园', title: '霓虹花园的狂徒', quote: '无人的海边，我把心交给了你', color: '#16a34a', desc: '你是极具号召力的宣泄者。你追求灵魂深处的宏大共鸣，愿意燃烧自己去照亮别人。', image: '霓虹花园.png' },
+            { rbti: 'ISTP', name: 'toe', title: 'toe的节拍器', quote: '在复杂的不规则里寻找平静', color: '#d97706', desc: '你极度迷恋器乐的律动与技术的细节。话不多，但内心的节奏感却千变万化，极其迷人。', image: 'toe.png' },
+            { rbti: 'ISFP', name: '南青', title: '南青的合唱团', quote: '在这座城市遗失了你', color: '#3b82f6', desc: '你是温柔的倾听者。你不需要主唱嘶吼，只靠旋律的共鸣就能编织出充满温度的风景。', image: '南青.png' },
+            { rbti: 'ISFP', name: '小福星', title: '小福星', quote: '我徒有手脚一双，却扛不起这天杀的大旗', color: '#db2777', desc: '你充满神性与治愈力。在两极分化的边缘，你总是能用空灵的和声去拥抱这个残缺的世界。', image: 'doudou.png' }, // 与南青同属ISFP
+            { rbti: 'ISTJ', name: '惘闻', title: '惘闻的深海潜艇', quote: '水下没有光，但有无尽的声波', color: '#0c4a6e', desc: '你严肃、克制、且极具结构感。你总是习惯慢慢下潜，在最深的音墙中建立属于自己的秩序。', image: '惘闻.png' },
+            { rbti: 'ISFJ', name: '赵雷', title: '赵雷的成都过客', quote: '永远都像初次见你那样', color: '#78350f', desc: '你恋旧、重情且充满安全感。在喧嚣的世界上，你更愿意守着一把木吉他，唱自己的小城故事。', image: '赵雷.png' },
+            { rbti: 'INTP', name: '安溥', title: '安溥的思考者', quote: '去挥霍和珍惜是同一件事情', color: '#047857', desc: '你是独立清醒的哲学家。你不盲从世俗，更愿意在只言片语中解构人生的终极命题。', image: '安溥.png' },
+            { rbti: 'INFP', name: '草东没有派对', title: '草东的丧种', quote: '预备！各就各位 一二三跳 跳进染缸', color: '#18181b', desc: '你有着极其敏锐脆弱的内心。表面平静，实则内心早已千疮百孔，只能通过悲观的嘶吼来寻求救赎。', image: '草东.png' },
+            { rbti: 'INTJ', name: '郁乐队', title: '郁的悲水守护者', quote: '悲伤逆流成河，金属依然铿锵', color: '#1e3a8a', desc: '你是孤独的清醒者与时代的观测家。极高的音乐审美与悲天悯人的视角，让你显得深不可测。', image: '郁乐队.png' },
+            { rbti: 'INFJ', name: '万能青年旅店', title: '万青的兵', quote: '大梦一场的董二千先生', color: '#4338ca', desc: '你习惯用深邃的隐喻去对抗平庸。在你的世界里，诗意和批判总是完美融合。', image: '万青.png' },
+            { rbti: 'INFJ', name: '时过夏末', title: '夏末的余温', quote: '时间带走一切，留下漫长的告别', color: '#312e81', desc: '你极其敏感且克制，喜欢在压抑的氛围中等待那一次划破天际的彻底爆发。', image: '时过夏末.png' } // 与万青同属INFJ
         ];
 
-        const baseSvgs = {
-            dark: `<svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-xl"><path fill="COLOR1" d="M100 20 C 40 20, 20 100, 20 100 C 20 100, 40 180, 100 180 C 160 180, 180 100, 180 100 C 180 100, 160 20, 100 20 Z"/><circle cx="100" cy="100" r="40" fill="#fff"/><circle cx="100" cy="100" r="20" fill="COLOR2"/><path fill="COLOR2" d="M100 100 L120 70 L140 100 Z" opacity="0.8"/><rect x="80" y="40" width="40" height="120" fill="COLOR1" opacity="0.3" transform="rotate(45 100 100)"/></svg>`,
-            post: `<svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-xl"><circle cx="100" cy="100" r="80" fill="COLOR1"/><path fill="COLOR2" opacity="0.8" d="M20 140 Q60 90 100 140 T180 140 L180 180 L20 180 Z"/><path fill="#ffffff" opacity="0.3" d="M20 150 Q60 110 100 150 T180 150 L180 180 L20 180 Z"/><circle cx="100" cy="70" r="15" fill="#ffffff" opacity="0.9"/><path fill="COLOR1" d="M90 140 L100 110 L110 140 L105 180 L95 180 Z"/></svg>`,
-            punk: `<svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-xl"><rect x="40" y="40" width="120" height="120" fill="COLOR1" rx="10" transform="rotate(-5 100 100)"/><path fill="COLOR2" d="M50 150 L100 30 L150 150 Z"/><circle cx="100" cy="110" r="25" fill="#fff"/><line x1="80" y1="110" x2="120" y2="110" stroke="COLOR1" stroke-width="8"/><line x1="100" y1="90" x2="100" y2="130" stroke="COLOR1" stroke-width="8"/><circle cx="50" cy="50" r="8" fill="COLOR2"/><circle cx="150" cy="50" r="8" fill="COLOR2"/><circle cx="150" cy="150" r="8" fill="COLOR2"/><circle cx="50" cy="150" r="8" fill="COLOR2"/></svg>`,
-            metal: `<svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-xl"><path fill="COLOR1" d="M50 40 L100 80 L150 40 L130 160 L100 130 L70 160 Z"/><circle cx="100" cy="90" r="25" fill="#fff"/><path fill="COLOR2" d="M85 85 Q100 70 115 85 Q100 110 85 85 Z"/><path fill="COLOR2" d="M20 100 L60 80 L70 120 Z"/><path fill="COLOR2" d="M180 100 L140 80 L130 120 Z"/></svg>`,
-            folk: `<svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-xl"><path fill="COLOR1" opacity="0.2" d="M0 160 Q100 100 200 160 L200 200 L0 200 Z"/><circle cx="100" cy="80" r="30" fill="COLOR2"/><path fill="COLOR1" d="M80 100 Q100 80 120 100 L130 180 Q100 190 70 180 Z"/><circle cx="100" cy="140" r="15" fill="#fff"/><line x1="90" y1="140" x2="110" y2="140" stroke="COLOR1" stroke-width="2"/><rect x="95" y="60" width="10" height="40" fill="COLOR1"/></svg>`,
-            pop: `<svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-xl"><rect x="40" y="60" width="120" height="80" fill="COLOR1" rx="10"/><rect x="55" y="75" width="90" height="50" fill="#fff" rx="5"/><circle cx="75" cy="100" r="15" fill="COLOR2"/><circle cx="125" cy="100" r="15" fill="COLOR2"/><line x1="90" y1="100" x2="110" y2="100" stroke="COLOR2" stroke-width="4"/><path fill="COLOR2" opacity="0.5" d="M20 40 L40 60 L60 40 Z"/><path fill="COLOR2" opacity="0.5" d="M180 160 L160 140 L140 160 Z"/></svg>`,
-            retro: `<svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-xl"><circle cx="100" cy="100" r="60" fill="COLOR1"/><path fill="#fff" opacity="0.3" d="M60 60 Q100 40 140 60 Q120 100 140 140 Q100 160 60 140 Q80 100 60 60 Z"/><path fill="COLOR2" d="M80 80 L120 80 L120 120 L80 120 Z" transform="rotate(45 100 100)"/><circle cx="100" cy="100" r="15" fill="#fff"/><circle cx="50" cy="150" r="10" fill="COLOR2"/><circle cx="150" cy="50" r="10" fill="COLOR2"/></svg>`,
-            psyche: `<svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-xl"><path fill="COLOR1" d="M100 30 C 150 30, 180 80, 180 100 C 180 120, 150 170, 100 170 C 50 170, 20 120, 20 100 C 20 80, 50 30, 100 30 Z"/><path fill="COLOR2" opacity="0.8" d="M100 50 C 130 50, 150 80, 150 100 C 150 120, 130 150, 100 150 C 70 150, 50 120, 50 100 C 50 80, 70 50, 100 50 Z"/><circle cx="100" cy="100" r="25" fill="#fff"/><path fill="COLOR1" d="M90 90 Q100 110 110 90 Z" opacity="0.9"/><path fill="COLOR2" d="M0 100 Q 50 50 100 100 T 200 100" stroke="COLOR2" stroke-width="4" fill="none" opacity="0.5"/></svg>`
-        };
+        // ================= 80道 底层维度题库 =================
+        const allQuestions = [
+            // E vs I (现场互动类)
+            { text: "在音乐节现场，主唱要求大家全部蹲下，然后一起跳起来，你会？", options: [{ text: "毫不犹豫蹲下，蓄势待发准备跳到最高", points: ['E', 'P'] }, { text: "跟着蹲下，但跳的时候只是意思一下", points: ['E', 'J'] }, { text: "觉得有点尴尬，站在原地看着别人跳", points: ['I', 'J'] }, { text: "趁大家蹲下，我赶紧退到后面去透透气", points: ['I', 'P'] }]},
+            { text: "Livehouse里，你最不能忍受哪种行为？", options: [{ text: "全程举着手机录像，像木头一样完全不互动", points: ['E', 'F'] }, { text: "不顾别人死活、盲目冲撞的酒蒙子", points: ['I', 'J'] }, { text: "在前奏特别安静时大声聊天破坏氛围的人", points: ['I', 'N'] }, { text: "主唱一开口就开始跟唱，而且完全不在调上", points: ['T', 'S'] }]},
+            { text: "如果有人在看演出时狠狠踩了你一脚，你会：", options: [{ text: "立马瞪他甚至推回去，我的地盘不容侵犯", points: ['E', 'T'] }, { text: "大声提醒他注意点，但也懒得计较了", points: ['E', 'F'] }, { text: "皱个眉头很无语，默默换到一个没人的角落", points: ['I', 'P'] }, { text: "完全没反应，我当时已经闭上眼沉浸在音乐里了", points: ['I', 'N'] }]},
+            { text: "在音乐节的市集，你最容易被什么吸引？", options: [{ text: "废话，当然是直接走向人最多的精酿吧台", points: ['E', 'S'] }, { text: "卖复古花衬衫、二手古着和老式相机的铺子", points: ['E', 'P'] }, { text: "卖奇奇怪怪的手串、印度香的算命角落", points: ['I', 'N'] }, { text: "卖独立小众杂志、地下艺术出版物的摊位", points: ['I', 'J'] }]},
+            { text: "如果旁边的陌生人突然递给你一瓶酒，你会？", options: [{ text: "毫不犹豫接过来干了，今晚大家都是兄弟！", points: ['E', 'P'] }, { text: "礼貌地碰个杯，趁机加个微信聊聊喜欢的乐队", points: ['E', 'F'] }, { text: "觉得这是一种神秘的缘分，接过来抿一口", points: ['I', 'N'] }, { text: "警惕地摆手拒绝，我更喜欢自己一个人待着", points: ['I', 'T'] }]},
+            { text: "音乐节大合影环节，你通常在哪个位置？", options: [{ text: "必须抢到第一排，举着大旗疯狂露脸", points: ['E', 'S'] }, { text: "在中间地带，和大家一起开心地比个摇滚手势", points: ['E', 'F'] }, { text: "在角落里，用冷酷的眼神看着镜头", points: ['I', 'T'] }, { text: "早就撤到边缘或者去买水了，不喜欢凑热闹", points: ['I', 'P'] }]},
+            { text: "对于“开小火车”（互相搭肩膀跑圈），你觉得：", options: [{ text: "太躁了，这是演出必须有的仪式感，必须加入", points: ['E', 'S'] }, { text: "偶尔跟着跑两步挺开心的，大家都很热情", points: ['E', 'F'] }, { text: "站在圈外看着他们跑，觉得有点好笑又有点可爱", points: ['I', 'F'] }, { text: "像猴戏一样无聊，我绝对不会参与这种破事", points: ['I', 'T'] }]},
+            { text: "遇到一首没听过但很好听的新歌时，你会：", options: [{ text: "管他叫啥名字，好听就先跟着周围人晃起来", points: ['E', 'P'] }, { text: "拍拍旁边的人，大声问这首歌叫什么名字", points: ['E', 'S'] }, { text: "默默记住某句特别的歌词，准备回去自己慢慢搜", points: ['I', 'J'] }, { text: "闭上眼睛完全放空，不打算知道它的名字", points: ['I', 'N'] }]},
+            { text: "看完一场震撼的演出，结束后你最想干嘛？", options: [{ text: "拉着朋友去吃宵夜喝酒，滔滔不绝地复盘全场", points: ['E', 'S'] }, { text: "在场馆外跟刚认识的乐迷合影留念", points: ['E', 'F'] }, { text: "戴上耳机，在回家的路上继续一个人回味", points: ['I', 'N'] }, { text: "立刻回家洗澡睡觉，现场的社交能量已耗尽", points: ['I', 'T'] }]},
+            { text: "在社交网络上，你通常扮演什么角色？", options: [{ text: "真性情的吐槽机器，看什么不爽就发文开骂", points: ['E', 'T'] }, { text: "社交狂人，喜欢在音乐节各种群里聊天搭讪", points: ['E', 'S'] }, { text: "深夜Emo语录的制造者或伤感诗人", points: ['I', 'F'] }, { text: "潜水观察者，偶尔转发分享冷门的好歌", points: ['I', 'T'] }]},
+            
+            // S vs N (审美与感知类)
+            { text: "当你评价一首歌“好听”时，通常是因为：", options: [{ text: "它的副歌旋律特别洗脑，或者鼓点律动让人想跳舞", points: ['S', 'E'] }, { text: "它的歌词写得非常接地气，像在讲我自己的故事", points: ['S', 'F'] }, { text: "它用器乐构建了一种庞大而深邃的画面感", points: ['N', 'I'] }, { text: "它打破了常规的编曲结构，充满实验性和迷幻色彩", points: ['N', 'T'] }]},
+            { text: "当一首长达10分钟的纯器乐后摇播放到第5分钟时：", options: [{ text: "觉得无聊，我想听点有清晰副歌和明确歌词的东西", points: ['S', 'E'] }, { text: "开始在脑子里分析它的贝斯线和吉他效果器串联", points: ['S', 'T'] }, { text: "渐入佳境，闭着眼等待情绪铺垫到最高潮", points: ['N', 'F'] }, { text: "思绪早就飘远了，开始陷入对自己人生意义的冥想", points: ['N', 'I'] }]},
+            { text: "你偏爱的摇滚歌词风格是？", options: [{ text: "直白、市井，带着泥土味和真实的生活细节", points: ['S', 'F'] }, { text: "充满力量的脏话和口号，直接描述现实的不满", points: ['S', 'E'] }, { text: "如现代诗般晦涩、工整，充满隐喻和悲剧色彩", points: ['N', 'J'] }, { text: "不需要歌词，或者人声只是一种虚幻缥缈的音效", points: ['N', 'P'] }]},
+            { text: "如果你的生活变成一种吉他效果器，它是：", options: [{ text: "失真 (Distortion)：暴躁、颗粒感、充满真实的破坏力", points: ['S', 'T'] }, { text: "合唱 (Chorus)：浪漫、层次丰富、带着复古的时代感", points: ['S', 'F'] }, { text: "混响 (Reverb)：空灵、深邃、像身处一个巨大的冰洞里", points: ['N', 'I'] }, { text: "哇音 (Wah-Wah)：迷幻、扭曲、完全不按常理出牌", points: ['N', 'P'] }]},
+            { text: "你最喜欢的现场舞台灯光是哪种？", options: [{ text: "随着重低音和鼓点全场疯狂爆闪的实体白光", points: ['S', 'E'] }, { text: "温暖柔和、像满天星光一样的老式黄色钨丝灯", points: ['S', 'F'] }, { text: "全场暗下来，只有一束极度孤独的冷光打在主唱身上", points: ['N', 'I'] }, { text: "迷乱、炫目、充满空间重叠感的彩色激光交织", points: ['N', 'P'] }]},
+            { text: "你的衣柜里，哪种类型的衣服占比最高？", options: [{ text: "破洞牛仔裤、皮夹克或者是带铆钉的马丁靴", points: ['S', 'E'] }, { text: "版型经典、颜色素净的日常休闲服，实用为主", points: ['S', 'J'] }, { text: "印着各种看不懂的异形Logo的黑色乐队T恤", points: ['N', 'T'] }, { text: "剪裁奇特、带有浓厚复古或艺术气息的古着", points: ['N', 'F'] }]},
+            { text: "你如何理解“时间”？", options: [{ text: "时间是把杀猪刀，带走了我的青春和体力", points: ['S', 'E'] }, { text: "时间是精确的节拍器，在现实里一点一滴流逝", points: ['S', 'J'] }, { text: "时间只存在于被我们浪费掉的那些美好瞬间的记忆里", points: ['N', 'F'] }, { text: "时间是一种幻觉，过去现在未来同时存在于宇宙中", points: ['N', 'I'] }]},
+            { text: "选一种你最喜欢的自然气象：", options: [{ text: "摧枯拉朽的狂风暴雨和震耳欲聋的雷鸣", points: ['S', 'E'] }, { text: "雨后带着泥土腥味和青草气息的潮湿晚风", points: ['S', 'F'] }, { text: "笼罩着整座城市的浓厚大雾，看不清前方", points: ['N', 'I'] }, { text: "冬日午后，穿过树叶打在地面上的斑驳光影", points: ['N', 'P'] }]},
+            { text: "如果你有一盘可以穿越时空的录像带，你想回到：", options: [{ text: "90年代的树村，感受最原始的死磕摇滚精神", points: ['S', 'T'] }, { text: "2000年初的台湾，听最正宗的台式浪漫情歌", points: ['S', 'F'] }, { text: "80年代的英国，沉浸在后朋克和英伦摇滚的浪潮里", points: ['N', 'J'] }, { text: "60年代的伍德斯托克，体验爱与和平的迷幻狂欢", points: ['N', 'P'] }]},
+            { text: "以下哪个意象最能代表你的青春？", options: [{ text: "操场上流的汗水和耳机里震耳欲聋的鼓点", points: ['S', 'E'] }, { text: "和几个狐朋狗友在天台抽的劣质香烟", points: ['S', 'P'] }, { text: "写满字迹的日记本和暗恋对象的背影", points: ['N', 'F'] }, { text: "在无聊的课堂上望着窗外的天空发呆，想象另一个世界", points: ['N', 'I'] }]},
+            
+            // T vs F (决策与情感类)
+            { text: "如果要在摇滚圈找个对象，你最看重对方什么？", options: [{ text: "能陪我一起在泥地里Pogo、疯狂发泄的伴侣", points: ['F', 'E'] }, { text: "懂我的沉默和脆弱，能一起在深夜发呆的灵魂", points: ['F', 'I'] }, { text: "必须和我喜欢同一个乐队，听歌品味高度一致才行", points: ['T', 'J'] }, { text: "品味不同没关系，只要他逻辑清晰、三观独立就行", points: ['T', 'N'] }]},
+            { text: "看到主唱在台上发疯砸了吉他，你的内心戏是：", options: [{ text: "太有感染力了！这就是极致的情绪宣泄", points: ['F', 'E'] }, { text: "觉得有些心疼，但能理解他那一刻的悲伤或愤怒", points: ['F', 'I'] }, { text: "在分析这是设定好的表演环节还是突发事故", points: ['T', 'J'] }, { text: "有点浪费乐器，这把琴的音色本来还挺好的", points: ['T', 'S'] }]},
+            { text: "面对世界上的“荒谬”和“不公”，你的本能反应：", options: [{ text: "极度愤怒，想用最具破坏力的方式进行冲撞", points: ['F', 'E'] }, { text: "躲进自己的精神庇护所，寻找内心的平静", points: ['F', 'I'] }, { text: "冷眼旁观，在心里写成荒诞的诗句以作嘲讽", points: ['T', 'N'] }, { text: "尝试通过理性分析去寻找社会系统的问题根源", points: ['T', 'J'] }]},
+            { text: "你认为“孤独”是：", options: [{ text: "一种病，需要酒精、音乐节和朋友来治愈", points: ['F', 'E'] }, { text: "像一把钝刀，时不时地拉扯一下心脏，让人流泪", points: ['F', 'N'] }, { text: "人生的客观常态，每个人注定都是一座孤岛", points: ['T', 'S'] }, { text: "最完美的创作状态，我极度享受绝对的清静和思考", points: ['T', 'I'] }]},
+            { text: "遇到无法沟通的偏见，你的应对方式是：", options: [{ text: "直接怼回去，或者比个中指，凭什么受气", points: ['F', 'E'] }, { text: "虽然生气但保持沉默，免得破坏自己的心情", points: ['F', 'I'] }, { text: "在心里冷笑，觉得人类的悲欢本来就不相通", points: ['T', 'N'] }, { text: "试图用逻辑和事实反驳对方，证明他是错的", points: ['T', 'J'] }]},
+            { text: "别人突然送你一束花，你会：", options: [{ text: "觉得很浪漫，开心地找个好看的花瓶养起来", points: ['F', 'S'] }, { text: "十分感动，觉得这是一种非常温暖的情感连接", points: ['F', 'I'] }, { text: "觉得有点尴尬或不切实际，不如请我吃顿饭", points: ['T', 'S'] }, { text: "看着它，感叹植物生命周期和美丽事物的转瞬即逝", points: ['T', 'N'] }]},
+            { text: "你最受不了别人身上的什么缺点？", options: [{ text: "缺乏同理心，对弱者的冷漠和残忍", points: ['F', 'I'] }, { text: "太无趣了，生活像机器一样没有一点浪漫细胞", points: ['F', 'E'] }, { text: "虚伪圆滑，满嘴官腔，毫无逻辑不讲真话", points: ['T', 'J'] }, { text: "强加于人的控制欲和莫名其妙的道德绑架", points: ['T', 'N'] }]},
+            { text: "如果你的一生被拍成一部电影，你希望它的结局是：", options: [{ text: "主人公在狂欢中落幕，没有遗憾地爱过恨过", points: ['F', 'E'] }, { text: "一个开放式的悲剧结尾，留下无尽的怅惘", points: ['F', 'N'] }, { text: "所有的伏笔和悬念都得到了完美的解释和收尾", points: ['T', 'J'] }, { text: "一个极其荒诞的反转，嘲讽了之前的所有剧情", points: ['T', 'P'] }]},
+            { text: "听到一首曾经单曲循环的老歌，你会：", options: [{ text: "想起那个一起听这首歌的人，眼眶泛红", points: ['F', 'S'] }, { text: "被当时的情绪重新击中，陷入短暂的emo", points: ['F', 'I'] }, { text: "仔细回味以前的经典编曲结构，感叹现在的歌没法比", points: ['T', 'J'] }, { text: "立马切掉，我更喜欢去寻找没听过的新鲜声音", points: ['T', 'P'] }]},
+            { text: "在摇滚圈，你最看不起什么行为？", options: [{ text: "充满优越感和戾气，整天在网上拉踩贬低别人", points: ['F', 'J'] }, { text: "为了赚钱迎合市场，写出来的歌完全失去初心", points: ['F', 'N'] }, { text: "满嘴摇滚精神，实际上装逼摆谱、缺乏硬实力的混子", points: ['T', 'S'] }, { text: "没有独立思考能力，像追爱豆一样盲目追星的饭圈粉", points: ['T', 'I'] }]},
+            
+            // J vs P (生活方式与秩序类)
+            { text: "去参加三天两夜的户外音乐节，出发前你会：", options: [{ text: "做好详尽的Excel表格，把看演出、吃饭、大巴时间都算好", points: ['J', 'T'] }, { text: "把所有可能用到的雨衣、药、充电宝全部打包整齐", points: ['J', 'S'] }, { text: "随便塞两件衣服，到了现场走到哪算哪", points: ['P', 'E'] }, { text: "根本没计划，甚至可能因为睡过头错过开场", points: ['P', 'I'] }]},
+            { text: "周末没约人的下午，你更可能在做什么？", options: [{ text: "按照原本定好的计划，去健个身或者整理房间", points: ['J', 'S'] }, { text: "坐在书桌前，有条理地记录最近的听歌笔记", points: ['J', 'I'] }, { text: "去一家老旧的黑胶唱片店随心所欲地淘碟", points: ['P', 'F'] }, { text: "带上相机，毫无目的地去城市的边缘漫游废墟", points: ['P', 'N'] }]},
+            { text: "你对待金钱的态度是：", options: [{ text: "通过精打细算和规划，获得一种生活在掌控之中的安全感", points: ['J', 'T'] }, { text: "按部就班地存钱，为了以后能买得起更好的乐器和设备", points: ['J', 'S'] }, { text: "够买酒和看演出的门票就行了，千金散尽还复来", points: ['P', 'E'] }, { text: "钱只是维持我追求精神自由的数字，平时花钱全凭心情", points: ['P', 'N'] }]},
+            { text: "在Livehouse看演出，关于站位你通常：", options: [{ text: "必须提前两个小时去排队，雷打不动地占据第一排正中", points: ['J', 'E'] }, { text: "找一个离调音台最近的绝佳听觉位置，整场钉死在那里", points: ['J', 'T'] }, { text: "一直在场子里游走，哪里气氛好就往哪里钻", points: ['P', 'E'] }, { text: "随遇而安，被人挤到哪算哪，佛系看演出", points: ['P', 'I'] }]},
+            { text: "对于音乐节里举着大旗子的行为，你的看法是：", options: [{ text: "极其自私且不讲规矩，完全挡住了后面人的视线", points: ['J', 'T'] }, { text: "应该在规定的区域举，不要影响到别人的体验", points: ['J', 'F'] }, { text: "那是厂牌和帮派的象征，够躁够自由，必须举！", points: ['P', 'E'] }, { text: "看着那些印着奇怪口号的旗子随风飘扬，感觉有点浪漫", points: ['P', 'N'] }]},
+            { text: "你如何看待音乐中的“跑调”或“破音”？", options: [{ text: "不可原谅，音乐是一门严谨的艺术，需要精确的控制", points: ['J', 'T'] }, { text: "会让人出戏，打断了我原本期待的听觉体验", points: ['J', 'S'] }, { text: "那才是真实的荷尔蒙和原始的生命力，要的就是这种粗糙", points: ['P', 'E'] }, { text: "无所谓，只要那一刻的情绪是对的，破音也是一种美", points: ['P', 'F'] }]},
+            { text: "遇到一首前奏长达三分钟的歌，你的反应是：", options: [{ text: "耐着性子听，觉得这是整首歌结构中不可或缺的铺垫", points: ['J', 'T'] }, { text: "有点急躁，习惯性地想直接快进跳到副歌高潮", points: ['J', 'S'] }, { text: "完全放空，任由这三分钟的音效带我的思绪到处乱飞", points: ['P', 'N'] }, { text: "如果不喜欢就随时切掉，听歌随心所欲没那么多规矩", points: ['P', 'E'] }]},
+            { text: "凌晨三点，你独自一人在空旷的马路上，你会干嘛？", options: [{ text: "加快脚步走直线，脑子里盘算着明天还要早起干活", points: ['J', 'S'] }, { text: "沿着斑马线一步步走，强迫症般地不踩到白线外", points: ['J', 'I'] }, { text: "大吼一声，或者一脚踢飞路边的易拉罐，释放天性", points: ['P', 'E'] }, { text: "觉得路灯的光晕像UFO，站在原地盯着看半天忘记回家", points: ['P', 'N'] }]},
+            { text: "如果让你选择学会一种乐器，你会选：", options: [{ text: "架子鼓，掌控全场的节拍，是一切秩序的核心", points: ['J', 'T'] }, { text: "古典钢琴，需要极强的自律和日复一日的精准练习", points: ['J', 'I'] }, { text: "合成器，随时可以扭出各种不受控制的迷幻音效", points: ['P', 'N'] }, { text: "木吉他，走到哪弹到哪，主打一个随性自由", points: ['P', 'F'] }]},
+            { text: "如果人生是一场游戏，你觉得它的类型是：", options: [{ text: "需要不断解谜和计算规律、严谨通关的逻辑游戏", points: ['J', 'T'] }, { text: "按部就班完成主线任务的角色扮演游戏", points: ['J', 'S'] }, { text: "没有主线任务、随处可逛的自由开放世界", points: ['P', 'E'] }, { text: "画风极度迷幻、剧情荒诞没有结局的独立游戏", points: ['P', 'N'] }]},
+            
+            // 补充题库 (混入现场、审美、社交综合)
+            { text: "音乐节遇到满是烂泥的草坪，你的反应是：", options: [{ text: "脱鞋跳进去泥浆浴，弄脏了更摇滚！", points: ['E', 'P'] }, { text: "穿上提前准备好的雨靴，甚至还能顺便拍个照", points: ['J', 'S'] }, { text: "极其嫌弃，尽量踮着脚躲到没泥的硬地去", points: ['I', 'J'] }, { text: "坐在泥坑边上发呆，看着这群狂欢的人群", points: ['I', 'N'] }]},
+            { text: "演出中间主唱让你开手机闪光灯，你会：", options: [{ text: "乖乖打开手电筒跟着大家一起摇晃，享受这份连接", points: ['E', 'F'] }, { text: "觉得有点俗套，但还是碍于气氛照做了", points: ['I', 'F'] }, { text: "坚决不开，甚至觉得这种互动极其无聊", points: ['T', 'J'] }, { text: "趁机闭上眼，享受这片刻人造的星光", points: ['I', 'N'] }]},
+            { text: "如果在Livehouse看到有人下跪求婚，你会：", options: [{ text: "觉得好浪漫啊，跟着大家一起欢呼送上祝福", points: ['E', 'F'] }, { text: "觉得非常矫情，完全破坏了我听歌的心境和现场秩序", points: ['I', 'J'] }, { text: "觉得有点荒诞，像是在看一场不合时宜的行为艺术", points: ['N', 'T'] }, { text: "满脸黑线，觉得这帮人是不是走错场子跑这儿作秀来了", points: ['T', 'S'] }]},
+            { text: "对于目前短视频平台带火的“网红乐队”，你的态度是：", options: [{ text: "只要现场够躁够狠，实力过硬，管他在网上红不红", points: ['S', 'E'] }, { text: "敬而远之，一听到那种套路和弦就头疼，更受不了饭圈", points: ['T', 'I'] }, { text: "无所谓啊，如果旋律写得确实好听，网红一点也没关系", points: ['F', 'P'] }, { text: "存在即合理吧，也许爆红的背后有我没发现的时代印记", points: ['N', 'P'] }]},
+            { text: "在你心中，一次堪称完美的Livehouse体验是怎样的？", options: [{ text: "全场毫无保留地互相冲撞，汗水交织，大汗淋漓地走出来", points: ['E', 'S'] }, { text: "灵魂被巨大的音墙彻底洗涤，演出结束后陷入长时间的沉默", points: ['I', 'N'] }, { text: "氛围超级好，和全场合唱了最爱的那首歌，感动到落泪", points: ['F', 'E'] }, { text: "像喝醉了一样，被光影和合成器带走，度过了一个迷幻的夜晚", points: ['N', 'P'] }]},
+            { text: "你最喜欢的酒精饮料是？", options: [{ text: "最烈的野格或伏特加，追求快速上头去冲撞", points: ['E', 'P'] }, { text: "路边摊几块钱一瓶的便宜啤酒，和兄弟能喝一宿", points: ['E', 'S'] }, { text: "精酿啤酒，喜欢品味苦涩和果香的层次感", points: ['T', 'S'] }, { text: "不太喝酒，或者只在独处时喝点清酒发呆", points: ['I', 'N'] }]},
+            { text: "看到一副极具冲击力的抽象画，你的感受是：", options: [{ text: "仿佛听到了高频的噪音和撕裂的金属声", points: ['S', 'P'] }, { text: "感觉到一种扭曲的、挣脱束缚的迷幻感", points: ['N', 'P'] }, { text: "尝试分析画家的笔触逻辑和色彩构成的秩序", points: ['T', 'J'] }, { text: "看不懂，但我能感受到画家作画时痛苦的情绪", points: ['F', 'I'] }]},
+            { text: "如果有人说你是个怪人，你会：", options: [{ text: "觉得这是一种最高级别的夸奖，我很骄傲", points: ['N', 'P'] }, { text: "在心里反思自己是不是哪里的行为越界了", points: ['F', 'J'] }, { text: "直接怼回去：你才怪，你们全家都怪！", points: ['E', 'S'] }, { text: "毫无波澜，我本来就不指望地球人能理解我", points: ['I', 'T'] }]},
+            { text: "如果你养了一只猫，你会给它取什么名字？", options: [{ text: "直接叫它某位摇滚巨星或吉他型号的名字", points: ['S', 'E'] }, { text: "用一种抽象的感觉或宇宙星体来命名", points: ['N', 'I'] }, { text: "大黄、咪咪这种最接地气、好养活的名字", points: ['S', 'F'] }, { text: "看它第一眼时的直觉，随便叫一个毫无逻辑的名字", points: ['P', 'N'] }]},
+            { text: "面对突如其来的失业或失恋，你的恢复方式：", options: [{ text: "买张机票立刻消失，去一个完全陌生的地方流浪", points: ['P', 'E'] }, { text: "把自己关在房间里，用音乐和酒精彻底麻醉三天", points: ['F', 'I'] }, { text: "列出接下来的计划，迅速把生活重新拉回正轨", points: ['T', 'J'] }, { text: "觉得这是宇宙给我的一次重启机会，开始研究哲学", points: ['N', 'T'] }]}
+        ];
 
         // 数组乱序算法
         function shuffleArray(array) {
@@ -418,11 +332,12 @@
             return arr;
         }
 
-        let currentQuestions = []; 
+        const QUIZ_LENGTH = 30; // 抽取30题
+
+        let currentQuestions = [];
         let currentQuestionIndex = 0;
         let userAnswers = [];
-        let userVibes = { punk: 0, metal: 0, post: 0, folk: 0, pop: 0, dark: 0, retro: 0, psyche: 0 };
-        
+
         const views = {
             start: document.getElementById('view-start'),
             quiz: document.getElementById('view-quiz'),
@@ -441,16 +356,17 @@
         }
 
         function startQuiz() {
-            currentQuestions = shuffleArray([...questionBank]).slice(0, QUIZ_LENGTH).map(q => ({
+            let shuffledBank = shuffleArray([...allQuestions]);
+            // 抽取 30 题，并且打乱选项顺序
+            currentQuestions = shuffledBank.slice(0, Math.min(QUIZ_LENGTH, shuffledBank.length)).map(q => ({
                 ...q,
                 options: shuffleArray([...q.options])
             }));
             
             currentQuestionIndex = 0;
-            userAnswers = new Array(QUIZ_LENGTH).fill(undefined);
-            Object.keys(userVibes).forEach(k => userVibes[k] = 0);
+            userAnswers = new Array(currentQuestions.length).fill(undefined);
             
-            document.getElementById('q-total').innerText = QUIZ_LENGTH;
+            document.getElementById('q-total').innerText = currentQuestions.length;
             renderQuestion();
             showView('quiz');
         }
@@ -460,7 +376,7 @@
             document.getElementById('question-text').innerText = `${currentQuestionIndex + 1}. ${q.text}`;
             document.getElementById('q-current').innerText = currentQuestionIndex + 1;
             
-            const progress = ((currentQuestionIndex) / QUIZ_LENGTH) * 100;
+            const progress = ((currentQuestionIndex) / currentQuestions.length) * 100;
             document.getElementById('progress-bar').style.width = `${progress}%`;
 
             const container = document.getElementById('options-container');
@@ -486,8 +402,8 @@
             
             if (userAnswers[currentQuestionIndex] !== undefined) {
                 btnNext.disabled = false;
-                btnNext.innerText = currentQuestionIndex === QUIZ_LENGTH - 1 ? '查看分析' : '下一题 \u2192';
-                if(currentQuestionIndex === QUIZ_LENGTH - 1) {
+                btnNext.innerText = currentQuestionIndex === currentQuestions.length - 1 ? '生成雷达图' : '下一题 \u2192';
+                if(currentQuestionIndex === currentQuestions.length - 1) {
                     btnNext.classList.remove('text-[#6366f1]', 'hover:bg-indigo-50');
                     btnNext.classList.add('bg-[#6366f1]', 'text-white', 'hover:bg-indigo-600', 'px-6');
                 } else {
@@ -506,7 +422,7 @@
             userAnswers[currentQuestionIndex] = index;
             renderQuestion(); 
             setTimeout(() => {
-                if (currentQuestionIndex < QUIZ_LENGTH - 1) {
+                if (currentQuestionIndex < currentQuestions.length - 1) {
                     nextQuestion();
                 } else {
                     finishQuiz();
@@ -522,10 +438,10 @@
         }
 
         function nextQuestion() {
-            if (currentQuestionIndex < QUIZ_LENGTH - 1 && userAnswers[currentQuestionIndex] !== undefined) {
+            if (currentQuestionIndex < currentQuestions.length - 1 && userAnswers[currentQuestionIndex] !== undefined) {
                 currentQuestionIndex++;
                 renderQuestion();
-            } else if (currentQuestionIndex === QUIZ_LENGTH - 1 && userAnswers[currentQuestionIndex] !== undefined) {
+            } else if (currentQuestionIndex === currentQuestions.length - 1 && userAnswers[currentQuestionIndex] !== undefined) {
                 finishQuiz();
             }
         }
@@ -540,121 +456,79 @@
             }, 1800);
         }
 
-        // ================= 核心多维匹配算法 (Euclidean Distance) =================
+        let userScores = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
+
         function calculateResult() {
-            Object.keys(userVibes).forEach(k => userVibes[k] = 0);
+            Object.keys(userScores).forEach(k => userScores[k] = 0);
             
-            let totalPoints = 0;
-            for (let i = 0; i < QUIZ_LENGTH; i++) {
+            for (let i = 0; i < currentQuestions.length; i++) {
                 const ansIndex = userAnswers[i];
                 if (ansIndex !== undefined) {
-                    const vibes = currentQuestions[i].options[ansIndex].vibes;
-                    vibes.forEach(v => { 
-                        userVibes[v] += 1; 
-                        totalPoints += 1;
-                    });
+                    const points = currentQuestions[i].options[ansIndex].points;
+                    points.forEach(p => { userScores[p] += 1; });
                 }
             }
 
-            // 1. 将用户的答题得分转化为 8 维度的百分比画像 (Profile)
-            let userProfile = {};
-            Object.keys(userVibes).forEach(k => {
-                userProfile[k] = totalPoints > 0 ? (userVibes[k] / totalPoints) * 100 : 0;
-            });
+            const E_vs_I = userScores.E >= userScores.I ? 'E' : 'I';
+            const S_vs_N = userScores.S >= userScores.N ? 'S' : 'N';
+            const T_vs_F = userScores.T >= userScores.F ? 'T' : 'F';
+            const J_vs_P = userScores.J >= userScores.P ? 'J' : 'P';
+            
+            const finalType = E_vs_I + S_vs_N + T_vs_F + J_vs_P;
 
-            let minDistance = Infinity;
-            let tiedBands = [];
-
-            // 2. 遍历所有乐队，计算用户画像与乐队标准画像的【欧几里得距离】
-            // 距离越小，说明性格雷达图越契合
-            for (let band of bands) {
-                let bandProfile = { punk: 0, metal: 0, post: 0, folk: 0, pop: 0, dark: 0, retro: 0, psyche: 0 };
-                
-                // 构建乐队的理想画像 (单属性 100%，双属性 60/40 开)
-                if (band.v1 === band.v2) {
-                    bandProfile[band.v1] = 100;
-                } else {
-                    bandProfile[band.v1] = 60;
-                    bandProfile[band.v2] = 40;
-                }
-
-                let distance = 0;
-                Object.keys(bandProfile).forEach(k => {
-                    let diff = userProfile[k] - bandProfile[k];
-                    distance += diff * diff; // 平方差
-                });
-
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    tiedBands = [band];
-                } else if (Math.abs(distance - minDistance) < 0.001) {
-                    tiedBands.push(band);
-                }
-            }
-
-            // 3. 极小概率平局处理：根据本次答题组合生成Hash，绝对结合题意不出错
+            // 根据 MBTI 获取匹配的所有乐队
+            let matchedBands = bands.filter(b => b.rbti === finalType);
+            if (matchedBands.length === 0) matchedBands = [bands[0]]; // 防御性兜底
+            
+            // 如果有多支乐队匹配同一个 MBTI 类型，则根据作答轨迹（Hash）稳定且平均地选一个，防止每次都一样
             let answerHash = userAnswers.reduce((sum, val, idx) => sum + (val !== undefined ? val : 0) * (idx + 1), 0);
-            let finalBand = tiedBands[answerHash % tiedBands.length];
+            let finalBand = matchedBands[answerHash % matchedBands.length];
 
             renderResult(finalBand);
-            renderVibeBars();
+            renderMBTIBars();
         }
 
         function renderResult(band) {
             document.getElementById('res-title').innerText = band.name;
             document.getElementById('res-subtitle').innerText = band.title;
             document.getElementById('res-quote').innerText = `“${band.quote}”`;
-            
-            // 根据多维特征生成解读文案
-            const v1Info = vibeInfo[band.v1];
-            const v2Info = vibeInfo[band.v2];
-            let descHtml = "";
-            
-            if(band.v1 === band.v2) {
-                 descHtml = `恭喜您，经过严密的多维向量分析，您的精神底色高度匹配 <b>${band.name}</b>！<br><br>在您的性格基因中，<b>${v1Info.name}</b> 占据了绝对纯粹的统治地位（${v1Info.desc}）。您不需要花里胡哨的点缀，纯粹且极致就是您的代名词。<br><br>您的灵魂就像一场没有剧本的Livehouse，在这个充满标准答案的世界里，您选择用自己独特的噪音去对抗无聊的平庸！`;
-            } else {
-                 descHtml = `恭喜您，经过严密的多维向量分析，您的精神底色高度匹配 <b>${band.name}</b>！<br><br>在您的性格基因中，占据主导地位的是 <b>${v1Info.name}</b>（${v1Info.desc}）。同时，您还交织着 <b>${v2Info.name}</b> 的特质（${v2Info.desc}）。<br><br>您的灵魂就像一场没有剧本的Livehouse，在这两种频率的交织下，您用自己独特的噪音去对抗无聊的平庸！`;
-            }
-            
-            document.getElementById('res-desc').innerHTML = descHtml;
+            document.getElementById('res-desc').innerHTML = band.desc;
 
-            let svgStr = baseSvgs[band.baseSvg];
-            svgStr = svgStr.replace(/COLOR1/g, band.colors[0]).replace(/COLOR2/g, band.colors[1]);
-            document.getElementById('res-illustration').innerHTML = svgStr;
+            // 加载本地的真实图片
+            document.getElementById('res-illustration').innerHTML = `<img src="${band.image}" alt="${band.name}" class="w-full h-full object-contain drop-shadow-xl" />`;
             
-            document.getElementById('dynamic-bg').style.backgroundColor = band.colors[0];
+            document.getElementById('dynamic-bg').style.backgroundColor = band.color;
         }
 
-        function renderVibeBars() {
+        function renderMBTIBars() {
             const container = document.getElementById('vibe-bars-container');
             container.innerHTML = '';
 
-            let maxVal = 0;
-            Object.values(userVibes).forEach(val => {
-                if(val > maxVal) maxVal = val;
-            });
-            if(maxVal === 0) maxVal = 1;
+            const pairs = [
+                { p1: 'E', n1: '外放 (Extrovert)', p2: 'I', n2: '沉浸 (Introvert)', c1: '#ef4444', c2: '#3b82f6' },
+                { p1: 'S', n1: '现实 (Sensing)', p2: 'N', n2: '抽象 (Intuition)', c1: '#d97706', c2: '#8b5cf6' },
+                { p1: 'T', n1: '理性 (Thinking)', p2: 'F', n2: '感性 (Feeling)', c1: '#111827', c2: '#ec4899' },
+                { p1: 'J', n1: '秩序 (Judging)', p2: 'P', n2: '混沌 (Perceiving)', c1: '#059669', c2: '#64748b' }
+            ];
 
-            const sortedVibes = Object.keys(userVibes).sort((a, b) => userVibes[b] - userVibes[a]);
-
-            sortedVibes.forEach(key => {
-                const val = userVibes[key];
-                const info = vibeInfo[key];
-                const percent = Math.floor((val / maxVal) * 100);
+            pairs.forEach(pair => {
+                let v1 = userScores[pair.p1] || 0;
+                let v2 = userScores[pair.p2] || 0;
+                let total = v1 + v2;
+                if (total === 0) { v1 = 1; v2 = 1; total = 2; } 
                 
-                let rank = 'L';
-                if(percent >= 70) rank = 'H';
-                else if(percent >= 40) rank = 'M';
+                let p1Percent = Math.round((v1 / total) * 100);
+                let p2Percent = 100 - p1Percent;
 
                 const html = `
-                    <div class="mb-3">
-                        <div class="flex justify-between items-end mb-1">
-                            <span class="text-[13px] font-bold text-gray-800">${info.name}</span>
-                            <span class="text-[12px] font-bold text-gray-500">${rank} / ${val}分</span>
+                    <div class="mb-4">
+                        <div class="flex justify-between items-end mb-1.5 px-1">
+                            <span class="text-[12px] font-bold" style="color: ${p1Percent>=p2Percent ? pair.c1 : '#9ca3af'}">${pair.n1} ${p1Percent}%</span>
+                            <span class="text-[12px] font-bold" style="color: ${p2Percent>p1Percent ? pair.c2 : '#9ca3af'}">${p2Percent}% ${pair.n2}</span>
                         </div>
-                        <p class="text-[11px] text-gray-400 mb-2 leading-tight">${info.desc}</p>
-                        <div class="w-full bg-gray-100 rounded-full h-1.5">
-                            <div class="h-1.5 rounded-full transition-all duration-1000" style="width: ${percent}%; background-color: ${info.color}"></div>
+                        <div class="w-full flex h-2 rounded-full overflow-hidden bg-gray-100">
+                            <div class="h-full transition-all duration-1000" style="width: ${p1Percent}%; background-color: ${p1Percent>=p2Percent ? pair.c1 : '#cbd5e1'}"></div>
+                            <div class="h-full transition-all duration-1000" style="width: ${p2Percent}%; background-color: ${p2Percent>p1Percent ? pair.c2 : '#cbd5e1'}"></div>
                         </div>
                     </div>
                 `;
